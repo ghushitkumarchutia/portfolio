@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Hero from "./Hero";
+import MobileHero from "./MobileHero";
 import About from "./About";
 import Project from "./Project";
 import Skill from "./Skill";
@@ -16,11 +17,22 @@ function App() {
       ) : currentView === "skill" ? (
         <Skill onClose={() => setCurrentView("hero")} />
       ) : (
-        <Hero
-          onShowAbout={() => setCurrentView("about")}
-          onShowProject={() => setCurrentView("project")}
-          onShowSkill={() => setCurrentView("skill")}
-        />
+        <>
+          <div className='hidden md:block'>
+            <Hero
+              onShowAbout={() => setCurrentView("about")}
+              onShowProject={() => setCurrentView("project")}
+              onShowSkill={() => setCurrentView("skill")}
+            />
+          </div>
+          <div className='block md:hidden'>
+            <MobileHero
+              onShowAbout={() => setCurrentView("about")}
+              onShowProject={() => setCurrentView("project")}
+              onShowSkill={() => setCurrentView("skill")}
+            />
+          </div>
+        </>
       )}
     </>
   );

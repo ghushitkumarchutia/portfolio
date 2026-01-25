@@ -104,7 +104,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           backgroundImage: `url(${noiseTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: isDark ? 0.05 : 0.04,
+          opacity: isDark ? 0.04 : 0.03,
         }}
         aria-hidden='true'
       />
