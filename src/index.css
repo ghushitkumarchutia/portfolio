@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-[#0a0a0a];
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("./assets/fonts/DMSans.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("./assets/fonts/BricolageGrotesque.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+.font-dmsans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+}
+
+.font-dmsans-light {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+
+.font-bricolage {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 400;
+}
+
+.font-bricolage-light {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 200;
+}
+
+/* Infinite Marquee Animation - Seamless Loop */
+.marquee {
+  --gap: 1rem;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100%;
+  gap: var(--gap);
+  animation: scroll 12s linear infinite;
+}
+
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+/* Fade edges mask for marquee */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* Spin Once Animation - for close button X icon */
+@keyframes spin-once {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-once {
+  animation: spin-once 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
