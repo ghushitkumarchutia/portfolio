@@ -8,7 +8,20 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { IoCopyOutline } from "react-icons/io5";
-import { SiReact, SiNextdotjs, SiTailwindcss, SiFigma } from "react-icons/si";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFigma,
+  SiJavascript,
+  SiTypescript,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiDocker,
+  SiGit,
+} from "react-icons/si";
 import noiseTexture from "./assets/noise.jpg";
 
 // Custom Arrow Icon SVG
@@ -243,8 +256,9 @@ const NewHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     CLICK & VIEW ALL
                   </span>
                 </span>
-                <div className='flex-1 w-full flex items-center justify-center relative overflow-hidden'>
-                  <div className='marquee marquee-mask w-full group-hover:opacity-50 transition-opacity duration-300'>
+                <div className='flex-1 w-full flex flex-col justify-center gap-2 relative overflow-hidden'>
+                  {/* First Marquee (Normal Direction) */}
+                  <div className='marquee marquee-mask w-full'>
                     <div className='marquee__content'>
                       <SiReact className='w-10 h-10 text-[#61DAFB] mx-2' />
                       <SiNextdotjs
@@ -255,6 +269,7 @@ const NewHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                       <FaGithub
                         className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
                       />
+                      <SiJavascript className='w-10 h-10 text-[#F7DF1E] mx-2' />
                     </div>
                     <div className='marquee__content' aria-hidden='true'>
                       <SiReact className='w-10 h-10 text-[#61DAFB] mx-2' />
@@ -266,6 +281,36 @@ const NewHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                       <FaGithub
                         className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
                       />
+                      <SiJavascript className='w-10 h-10 text-[#F7DF1E] mx-2' />
+                    </div>
+                  </div>
+
+                  {/* Second Marquee (Reverse Direction) */}
+                  <div className='marquee marquee-mask w-full'>
+                    <div className='marquee__content reverse'>
+                      <SiTypescript className='w-10 h-10 text-[#3178C6] mx-2' />
+                      <SiNodedotjs className='w-10 h-10 text-[#339933] mx-2' />
+                      <SiExpress
+                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
+                      />
+                      <SiMongodb className='w-10 h-10 text-[#47A248] mx-2' />
+                      <SiPostgresql className='w-10 h-10 text-[#4169E1] mx-2' />
+                      <SiDocker className='w-10 h-10 text-[#2496ED] mx-2' />
+                      <SiGit className='w-10 h-10 text-[#F05032] mx-2' />
+                    </div>
+                    <div
+                      className='marquee__content reverse'
+                      aria-hidden='true'
+                    >
+                      <SiTypescript className='w-10 h-10 text-[#3178C6] mx-2' />
+                      <SiNodedotjs className='w-10 h-10 text-[#339933] mx-2' />
+                      <SiExpress
+                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
+                      />
+                      <SiMongodb className='w-10 h-10 text-[#47A248] mx-2' />
+                      <SiPostgresql className='w-10 h-10 text-[#4169E1] mx-2' />
+                      <SiDocker className='w-10 h-10 text-[#2496ED] mx-2' />
+                      <SiGit className='w-10 h-10 text-[#F05032] mx-2' />
                     </div>
                   </div>
                 </div>

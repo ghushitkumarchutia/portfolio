@@ -57,10 +57,6 @@ body {
   animation: scroll 12s linear infinite;
 }
 
-.marquee:hover .marquee__content {
-  animation-play-state: paused;
-}
-
 @keyframes scroll {
   from {
     transform: translateX(0);
