@@ -70,6 +70,19 @@ body {
   }
 }
 
+@keyframes scroll-reverse {
+  from {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee__content.reverse {
+  animation-name: scroll-reverse;
+}
+
 /* Fade edges mask for marquee */
 .marquee-mask {
   mask-image: linear-gradient(
