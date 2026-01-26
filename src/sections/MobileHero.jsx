@@ -10,7 +10,13 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { IoCopyOutline } from "react-icons/io5";
-import { SiReact, SiNextdotjs, SiTailwindcss, SiFigma } from "react-icons/si";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFigma,
+  SiJavascript,
+} from "react-icons/si";
 import noiseTexture from "../assets/noise.jpg";
 
 // Custom Arrow Icon SVG
@@ -37,12 +43,24 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
     setTimeout(() => setEmailCopied(false), 4000);
   };
 
-  const bg = isDark ? "bg-[#090909]" : "bg-[#e5e5e5]";
+  const bg = isDark ? "bg-[#090909]" : "bg-[#f4f4f5]";
   const cardDark = "bg-[#141414] text-white";
-  const cardLight = "bg-[#f5f5f5] text-[#1a1a1a]";
+  const cardLight = "bg-[#fff] text-[#1a1a1a]";
   const card = isDark ? cardDark : cardLight;
-  const textMuted = isDark ? "text-[#666]" : "text-[#666]";
-  const textLabel = isDark ? "text-[#666]" : "text-[#666]";
+  const cardBorder = isDark ? "border-[#242424]" : "border-[#d1d5db]";
+  const textMuted = isDark ? "text-[#666]" : "text-[#6b7680]";
+  const textLabel = isDark ? "text-[#666]" : "text-[#6b7680]";
+
+  const row1Skills = [
+    { Icon: SiReact, color: "text-[#61DAFB]" },
+    { Icon: SiNextdotjs, color: isDark ? "text-white" : "text-black" },
+    { Icon: SiTailwindcss, color: "text-[#06B6D4]" },
+    { Icon: SiFigma, color: "text-[#F24E1E]" },
+    { Icon: FaGithub, color: isDark ? "text-white" : "text-black" },
+    { Icon: SiJavascript, color: "text-[#F7DF1E]" },
+  ];
+
+  const duplicatedSkills = Array(10).fill(row1Skills).flat();
 
   return (
     <section className={`relative z-10 min-h-screen p-2 ${bg}`}>
@@ -69,7 +87,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
         </div>
         {/* 2. Hero Intro */}
         <div
-          className={`rounded-[30px] px-9 py-10 flex flex-col justify-center border border-[#242424] ${card}`}
+          className={`rounded-[30px] px-9 py-10 flex flex-col justify-center border ${cardBorder} ${card}`}
         >
           <h1 className='text-[30px] font-dmsans mb-1'>Hi, I'm Ghushit ⎯</h1>
           <p
@@ -80,7 +98,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
         </div>
         {/* 3. About */}
         <div
-          className={`border border-[#242424] rounded-[30px] pt-[30px] pr-4 pb-4 pl-8 flex flex-col justify-between group transition-colors duration-150 ${isDark ? "hover:bg-white/5" : ""} ${card}`}
+          className={`border ${cardBorder} rounded-[30px] pt-[30px] pr-4 pb-4 pl-8 flex flex-col justify-between group transition-colors duration-150 ${isDark ? "hover:bg-white/5" : ""} ${card}`}
         >
           <span
             className={`text-[20px] tracking-[0.2em] font-dmsans-light uppercase ${textLabel}`}
@@ -93,7 +111,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           <div className='flex justify-end'>
             <button
               onClick={onShowAbout}
-              className={`w-11 h-11 rounded-full flex items-center justify-center cursor-pointer border-[1.8px] overflow-hidden relative ${isDark ? "border-[#333]" : "border-[#ddd]"} transition-colors`}
+              className={`w-11 h-11 rounded-full flex items-center justify-center cursor-pointer border-[1.8px] overflow-hidden relative ${isDark ? "border-[#333]" : "border-[#d1d5db]"} transition-colors`}
             >
               <span className='w-5 h-5 absolute transition-transform duration-500 ease-out group-hover:translate-x-8 group-hover:-translate-y-8'>
                 <ArrowIcon className='w-full h-full' />
@@ -110,7 +128,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           {/* Tech Stack */}
           <div
             onClick={onShowSkill}
-            className={`border border-[#242424] rounded-[25px] p-5 h-[160px] flex flex-col items-center overflow-hidden cursor-pointer group ${card}`}
+            className={`border ${cardBorder} rounded-[25px] p-5 h-[160px] flex flex-col items-center overflow-hidden cursor-pointer group ${card}`}
           >
             {/* Header Text */}
             <span
@@ -124,68 +142,26 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               {/* Marquee */}
               <div className='marquee marquee-mask w-full'>
                 {/* First content container */}
-                <div className='marquee__content'>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiReact className='w-7 h-7 text-[#61DAFB]' />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiNextdotjs
-                      className={`w-7 h-7 ${isDark ? "text-white" : "text-black"}`}
-                    />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiTailwindcss className='w-7 h-7 text-[#06B6D4]' />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiFigma className='w-7 h-7 text-[#F24E1E]' />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <FaGithub
-                      className={`w-7 h-7 ${isDark ? "text-white" : "text-black"}`}
-                    />
-                  </div>
+                <div className='marquee__content gap-4 pr-4'>
+                  {duplicatedSkills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className={`w-14 h-14 rounded-[12px] flex items-center justify-center shrink-0 transition-colors duration-300 ${isDark ? "bg-[#252525]" : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]"}`}
+                    >
+                      <skill.Icon className={`w-7 h-7 ${skill.color}`} />
+                    </div>
+                  ))}
                 </div>
                 {/* Duplicate content container for seamless loop */}
-                <div className='marquee__content' aria-hidden='true'>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiReact className='w-7 h-7 text-[#61DAFB]' />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiNextdotjs
-                      className={`w-7 h-7 ${isDark ? "text-white" : "text-black"}`}
-                    />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiTailwindcss className='w-7 h-7 text-[#06B6D4]' />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <SiFigma className='w-7 h-7 text-[#F24E1E]' />
-                  </div>
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center ${isDark ? "bg-[#252525]" : "bg-white shadow"}`}
-                  >
-                    <FaGithub
-                      className={`w-7 h-7 ${isDark ? "text-white" : "text-black"}`}
-                    />
-                  </div>
+                <div className='marquee__content gap-4 pr-4' aria-hidden='true'>
+                  {duplicatedSkills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className={`w-14 h-14 rounded-[12px] flex items-center justify-center shrink-0 transition-colors duration-300 ${isDark ? "bg-[#252525]" : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]"}`}
+                    >
+                      <skill.Icon className={`w-7 h-7 ${skill.color}`} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -193,7 +169,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
           {/* Theme Toggle */}
           <div
-            className={`border border-[#242424] rounded-[25px] w-[120px] h-[160px] flex items-center justify-center cursor-pointer ${card}`}
+            className={`border ${cardBorder} rounded-[25px] w-[120px] h-[160px] flex items-center justify-center cursor-pointer ${card}`}
             onClick={toggleTheme}
           >
             <div
@@ -242,7 +218,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
         </div>
         {/* 6. Contact */}
         <div
-          className={`border border-[#242424] rounded-[30px] p-7 flex flex-col justify-between ${card}`}
+          className={`border ${cardBorder} rounded-[30px] p-7 flex flex-col justify-between ${card}`}
         >
           <div>
             <span
@@ -283,7 +259,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           <div className='grid grid-cols-5 gap-2'>
             <a
               href='#'
-              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a] border-[#333]" : "bg-white border-[#ddd]"}`}
+              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <FaLinkedinIn
                 className={`w-7 h-7 ${isDark ? "text-white/80" : "text-[#1a1a1a]"}`}
@@ -291,7 +267,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </a>
             <a
               href='#'
-              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a] border-[#333]" : "bg-white border-[#ddd]"}`}
+              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <FaGithub
                 className={`w-7 h-7 ${isDark ? "text-white/80" : "text-[#1a1a1a]"}`}
@@ -299,7 +275,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </a>
             <a
               href='#'
-              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a] border-[#333]" : "bg-white border-[#ddd]"}`}
+              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <HiOutlineMail
                 className={`w-8 h-8 ${isDark ? "text-white/80" : "text-[#1a1a1a]"}`}
@@ -307,7 +283,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </a>
             <a
               href='#'
-              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a] border-[#333]" : "bg-white border-[#ddd]"}`}
+              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <FaInstagram
                 className={`w-7 h-7 ${isDark ? "text-white/80" : "text-[#1a1a1a]"}`}
@@ -315,7 +291,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </a>
             <a
               href='#'
-              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a] border-[#333]" : "bg-white border-[#ddd]"}`}
+              className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <FaXTwitter
                 className={`w-7 h-7 ${isDark ? "text-white/80" : "text-[#1a1a1a]"}`}

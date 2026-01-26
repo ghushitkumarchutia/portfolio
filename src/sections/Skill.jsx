@@ -14,14 +14,14 @@ const Skill = ({ onClose }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const bg = isDark ? "bg-[#090909]" : "bg-[#e5e5e5]";
-  const textLabel = isDark ? "text-[#555]" : "text-[#888]";
+  const bg = isDark ? "bg-[#090909]" : "bg-[#f4f4f5]";
+  const textLabel = isDark ? "text-[#666]" : "text-[#6b7680]";
   const pillClass = isDark
     ? "bg-[#1a1a1a] text-[#c2c2c2] hover:text-white"
-    : "bg-[#dcdcdc] text-[#333] hover:text-black";
+    : "bg-[#fff] text-[#1a1a1a] hover:text-black shadow-[0_2px_8px_rgba(0,0,0,0.06)]";
 
-  const separatorColor = isDark ? "bg-[#242424]" : "bg-[#ccc]";
-  const borderColor = isDark ? "border-[#242424]" : "border-[#ccc]";
+  const separatorColor = isDark ? "bg-[#242424]" : "bg-[#e5e7eb]";
+  const cardBorder = isDark ? "border-[#242424]" : "border-[#d1d5db]";
 
   // Handle close with spin animation
   const handleClose = () => {
@@ -85,12 +85,12 @@ const Skill = ({ onClose }) => {
       />
 
       <div
-        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${borderColor} overflow-visible ${bg}`}
+        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${cardBorder} overflow-visible ${bg}`}
       >
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className={`group absolute top-[60px] md:top-[70px] left-1/2 -translate-x-1/2 z-30 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer border-2 overflow-hidden ${isDark ? "border-[#333] hover:bg-neutral-600/15" : "border-[#ddd] hover:bg-black/5"} transition-colors`}
+          className={`group absolute top-[60px] md:top-[70px] left-1/2 -translate-x-1/2 z-30 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer border-2 overflow-hidden ${isDark ? "border-[#333] hover:bg-neutral-600/15" : "border-[#d1d5db] hover:bg-black/5"} transition-colors`}
         >
           <IoClose
             className={`w-[23px] h-[23px] text-[#8f8f8f] group-hover:text-white transition-all duration-500 ease-out ${isSpinning ? "animate-spin-once" : ""}`}

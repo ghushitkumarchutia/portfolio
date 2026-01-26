@@ -38,23 +38,61 @@ body {
   font-weight: 200;
 }
 
+:root {
+  --marquee-gap: 0.5rem;
+}
+
 /* Infinite Marquee Animation - Seamless Loop */
 .marquee {
-  --gap: 1rem;
   display: flex;
   overflow: hidden;
   user-select: none;
-  gap: var(--gap);
+  gap: var(--marquee-gap);
 }
 
 .marquee__content {
   flex-shrink: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  min-width: 100%;
-  gap: var(--gap);
-  animation: scroll 12s linear infinite;
+  width: max-content;
+  gap: var(--marquee-gap);
+  padding-right: var(--marquee-gap);
+  animation: scroll 100s linear infinite;
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
 @keyframes scroll {
@@ -62,13 +100,13 @@ body {
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-100% - var(--gap)));
+    transform: translateX(-100%);
   }
 }
 
 @keyframes scroll-reverse {
   from {
-    transform: translateX(calc(-100% - var(--gap)));
+    transform: translateX(-100%);
   }
   to {
     transform: translateX(0);

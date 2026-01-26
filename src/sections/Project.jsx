@@ -25,16 +25,15 @@ const Project = ({ onClose }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const bg = isDark ? "bg-[#090909]" : "bg-[#e5e5e5]";
-  const textLabel = isDark ? "text-[#555]" : "text-[#888]";
-  const borderColor = isDark ? "border-[#242424]" : "border-[#ccc]";
-  const separatorColor = isDark ? "bg-[#242424]" : "bg-[#ccc]";
+  const bg = isDark ? "bg-[#090909]" : "bg-[#f4f4f5]";
+  const textLabel = isDark ? "text-[#666]" : "text-[#6b7680]";
+  const cardBorder = isDark ? "border-[#242424]" : "border-[#d1d5db]";
+  const separatorColor = isDark ? "bg-[#242424]" : "bg-[#e5e7eb]";
 
-  const cardBg = isDark ? "bg-[#141414]" : "bg-[#f5f5f5]";
-  const cardBorder = isDark ? "border-[#242424]" : "border-[#ddd]";
+  const cardBg = isDark ? "bg-[#141414]" : "bg-[#fff]";
   const cardTextTitle = isDark ? "text-white" : "text-[#1a1a1a]";
   const cardTextSubtitle = isDark ? "text-[#777]" : "text-[#666]";
-  const pillBg = isDark ? "bg-[#1a1a1a]" : "bg-[#e5e5e5]";
+  const pillBg = isDark ? "bg-[#1a1a1a]" : "bg-[#f4f4f5]";
   const pillText = isDark ? "text-[#777]" : "text-[#555]";
 
   // Dev Projects Data
@@ -237,12 +236,12 @@ const Project = ({ onClose }) => {
       />
 
       <div
-        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${borderColor} overflow-visible ${bg}`}
+        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${cardBorder} overflow-visible ${bg}`}
       >
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className={`group absolute top-[60px] md:top-[70px] left-1/2 -translate-x-1/2 z-30 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer border-2 overflow-hidden ${isDark ? "border-[#333] hover:bg-neutral-600/15" : "border-[#ddd] hover:bg-black/5"} transition-colors`}
+          className={`group absolute top-[60px] md:top-[70px] left-1/2 -translate-x-1/2 z-30 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer border-2 overflow-hidden ${isDark ? "border-[#333] hover:bg-neutral-600/15" : "border-[#d1d5db] hover:bg-black/5"} transition-colors`}
         >
           <IoClose
             className={`w-[23px] h-[23px] text-[#8f8f8f] group-hover:text-white transition-all duration-500 ease-out ${isSpinning ? "animate-spin-once" : ""}`}

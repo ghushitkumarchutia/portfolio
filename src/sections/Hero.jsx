@@ -48,12 +48,35 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
     setTimeout(() => setEmailCopied(false), 4000);
   };
 
-  const bg = isDark ? "bg-[#000000]" : "bg-[#e5e5e5]";
+  const bg = isDark ? "bg-[#090909]" : "bg-[#f4f4f5]";
   const cardDark = "bg-[#141414] text-white";
-  const cardLight = "bg-[#f5f5f5] text-[#1a1a1a]";
+  const cardLight = "bg-[#fff] text-[#1a1a1a]";
   const card = isDark ? cardDark : cardLight;
-  const textMuted = isDark ? "text-[#666]" : "text-[#666]";
-  const textLabel = isDark ? "text-[#666]" : "text-[#666]";
+  const cardBorder = isDark ? "border-[#242424]" : "border-[#d1d5db]";
+  const textMuted = isDark ? "text-[#666]" : "text-[#6b7680]";
+  const textLabel = isDark ? "text-[#666]" : "text-[#6b7680]";
+
+  const row1Skills = [
+    { Icon: SiReact, color: "text-[#61DAFB]" },
+    { Icon: SiNextdotjs, color: isDark ? "text-white" : "text-black" },
+    { Icon: SiTailwindcss, color: "text-[#06B6D4]" },
+    { Icon: SiFigma, color: "text-[#F24E1E]" },
+    { Icon: FaGithub, color: isDark ? "text-white" : "text-black" },
+    { Icon: SiJavascript, color: "text-[#F7DF1E]" },
+  ];
+
+  const row2Skills = [
+    { Icon: SiTypescript, color: "text-[#3178C6]" },
+    { Icon: SiNodedotjs, color: "text-[#339933]" },
+    { Icon: SiExpress, color: isDark ? "text-white" : "text-black" },
+    { Icon: SiMongodb, color: "text-[#47A248]" },
+    { Icon: SiPostgresql, color: "text-[#4169E1]" },
+    { Icon: SiDocker, color: "text-[#2496ED]" },
+    { Icon: SiGit, color: "text-[#F05032]" },
+  ];
+
+  const duplicatedSkillsRow1 = Array(10).fill(row1Skills).flat();
+  const duplicatedSkillsRow2 = Array(10).fill(row2Skills).flat();
 
   return (
     <section className={`relative z-10 h-screen overflow-hidden p-3 ${bg}`}>
@@ -64,11 +87,13 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           backgroundImage: `url(${noiseTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: isDark ? 0.05 : 0.04,
+          opacity: isDark ? 0.05 : 0.05,
         }}
         aria-hidden='true'
       />
-      <div className='flex flex-col rounded-[36px] border-2 border-[#242424] h-full w-full relative p-3'>
+      <div
+        className={`flex flex-col rounded-[36px] border-2 ${cardBorder} h-full w-full relative p-3`}
+      >
         {/* Main Grid Layout */}
         <div className='h-full flex gap-3'>
           {/* === LEFT COLUMN (Fixed Width) === */}
@@ -83,9 +108,9 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </div>
 
             {/* 2. Projects Navigation (Middle) */}
-            <div
+            <button
               onClick={onShowProject}
-              className={`rounded-[27.5px] overflow-hidden relative group cursor-pointer ${card}`}
+              className={`rounded-[27.5px] overflow-hidden relative group w-full text-left p-0 ${card}`}
             >
               <img
                 src='src/assets/projects.jpg'
@@ -109,15 +134,15 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   </span>
                 </div>
               </div>
-            </div>
+            </button>
 
             {/* 3. Theme Toggle (Bottom) */}
             <div
-              className={`rounded-[27.5px] flex items-center justify-center border border-[#242424] ${card}`}
-              onClick={toggleTheme}
+              className={`rounded-[27.5px] flex items-center justify-center border ${cardBorder} ${card}`}
             >
               <div
-                className={`w-[104px] h-[52px] rounded-full px-1 relative flex items-center cursor-pointer transition-colors duration-500 border-[1.7px] ${isDark ? "bg-[#252525] border-[#444]" : "bg-[#d0d0d0] border-[#b0b0b0]"}`}
+                className={`w-[104px] h-[52px] rounded-full px-1 relative flex items-center transition-colors duration-500 border-[1.7px] ${isDark ? "bg-[#252525] border-[#444]" : "bg-[#d0d0d0] border-[#b0b0b0]"}`}
+                onClick={toggleTheme}
               >
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center bg-[#0a0a0a] transition-all duration-500 ease-in-out ${isDark ? "ml-0" : "ml-[52px]"}`}
@@ -139,7 +164,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             <div className='grid grid-cols-[1fr_95px] gap-3 h-full'>
               {/* 4. Merged Hero + About (Top Left) */}
               <div
-                className={`col-span-1 h-full rounded-[27.5px] pl-12 pr-10 pb-8 pt-14 flex flex-col justify-between border border-[#242424] relative group ${card}`}
+                className={`col-span-1 h-full rounded-[27.5px] pl-12 pr-10 pb-8 pt-14 flex flex-col justify-between border ${cardBorder} relative group ${card}`}
               >
                 {/* Hero Logic (Top Half) */}
                 <div className='flex flex-col justify-center'>
@@ -153,7 +178,9 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     Full-Stack Developer & UI/UX Designer
                   </p>
                 </div>
-                <span className={`w-full h-[1.5px] bg-[#242424]`} />
+                <span
+                  className={`w-full h-[1.5px] ${isDark ? "bg-[#242424]" : "bg-[#d1d5db]"}`}
+                />
 
                 {/* About Logic (Bottom Half) */}
                 <div className='flex flex-col justify-center relative'>
@@ -169,12 +196,9 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
                   {/* Arrow Button (Bottom Right) */}
                   <div className='absolute flex items-center bottom-0 right-0'>
-                    <span className='mr-4 text-[26px] font-bricolage-light'>
-                      More Info:{" "}
-                    </span>
                     <button
                       onClick={onShowAbout}
-                      className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer border-[1.8px] overflow-hidden relative ${isDark ? "border-[#333] hover:border-neutral-600 hover:bg-neutral-600/15" : "border-[#ddd] hover:border-neutral-300 hover:bg-neutral-200/15"} transition-colors`}
+                      className={`w-14 h-14 rounded-full flex items-center justify-center  border-[1.8px] overflow-hidden relative ${isDark ? "border-[#333] hover:border-neutral-600 hover:bg-neutral-600/15" : "border-[#ddd] hover:border-neutral-300 hover:bg-neutral-200/15"} transition-colors`}
                     >
                       <span className='w-6 h-6 absolute transition-transform duration-500 ease-out group-hover:translate-x-8 group-hover:-translate-y-8'>
                         <ArrowIcon className='w-full h-full' />
@@ -190,43 +214,43 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               {/* 7. Social Icons (Top Right - Vertical) */}
               <div className='flex flex-col gap-[10px] h-full'>
                 <a
-                  href='#'
-                  className={`flex-1 w-full rounded-[27.5px] flex items-center justify-center  border border-[#242424] transition-all duration-200 hover:scale-101 ${card}`}
+                  href='https://www.linkedin.com/in/ghushitkumarchutia/'
+                  className={`flex-1 w-full rounded-b-[16px] rounded-t-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <FaLinkedinIn
-                    className={`w-8 h-8 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
+                    className={`w-9 h-9 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
                 <a
-                  href='#'
-                  className={`flex-1 w-full rounded-[27.5px] flex items-center justify-center  border border-[#242424] transition-all duration-200 hover:scale-101 ${card}`}
+                  href='https://github.com/ghushitkumarchutia'
+                  className={`flex-1 w-full rounded-[16px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <FaGithub
-                    className={`w-8 h-8 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
+                    className={`w-9 h-9 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
                 <a
-                  href='#'
-                  className={`flex-1 w-full rounded-[27.5px] flex items-center justify-center  border border-[#242424] transition-all duration-200 hover:scale-101 ${card}`}
+                  href='mailto:ghushitchutia@gmail.com'
+                  className={`flex-1 w-full rounded-[16px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <HiOutlineMail
-                    className={`w-8 h-8 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
+                    className={`w-10 h-10 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
                 <a
-                  href='#'
-                  className={`flex-1 w-full rounded-[27.5px] flex items-center justify-center border border-[#242424] transition-all duration-200 hover:scale-101 ${card}`}
+                  href='https://www.instagram.com/ghushittt/'
+                  className={`flex-1 w-full rounded-[20px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <FaInstagram
-                    className={`w-8 h-8 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
+                    className={`w-9 h-9 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
                 <a
                   href='#'
-                  className={`flex-1 w-full rounded-[27.5px] flex items-center justify-center  border border-[#242424] transition-all duration-200 hover:scale-101 ${card}`}
+                  className={`flex-1 w-full rounded-t-[16px] rounded-b-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <FaXTwitter
-                    className={`w-6 h-6 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
+                    className={`w-8 h-8 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
               </div>
@@ -235,81 +259,95 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             {/* --- BOTTOM ROW (skills + available + contact) --- */}
             <div className='grid grid-cols-[260px_240px_1fr] gap-3'>
               {/* 5. Skills (Left) */}
-              <div
+              <button
                 onClick={onShowSkill}
-                className={`col-span-1 p-5 flex flex-col items-center justify-center overflow-hidden cursor-pointer border border-[#242424] rounded-[27.5px] group ${card}`}
+                className={`col-span-1 p-5 flex flex-col items-center justify-center overflow-hidden w-full text-left border ${cardBorder} rounded-[27.5px] group ${card}`}
               >
                 <span
                   className={`text-[17px] tracking-[0.2em] mt-[10.5px] font-dmsans-light ${textLabel}`}
                 >
                   <span className='group-hover:hidden'>MY SKILLS</span>
-                  <span className='hidden group-hover:block text-white text-[16px'>
+                  <span className='hidden group-hover:block text-[17px]'>
                     CLICK & VIEW ALL
                   </span>
                 </span>
-                <div className='flex-1 w-full flex flex-col justify-center gap-2 relative overflow-hidden'>
-                  {/* First Marquee (Normal Direction) */}
-                  <div className='marquee marquee-mask w-full'>
+                <div className='flex-1 w-full flex flex-col justify-center gap-2 relative overflow-hidden pb-1'>
+                  {/* First Marquee - Left to Right */}
+                  <div className='flex overflow-hidden select-none w-full mask-gradient'>
                     <div className='marquee__content'>
-                      <SiReact className='w-10 h-10 text-[#61DAFB] mx-2' />
-                      <SiNextdotjs
-                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
-                      />
-                      <SiTailwindcss className='w-10 h-10 text-[#06B6D4] mx-2' />
-                      <SiFigma className='w-10 h-10 text-[#F24E1E] mx-2' />
-                      <FaGithub
-                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
-                      />
-                      <SiJavascript className='w-10 h-10 text-[#F7DF1E] mx-2' />
+                      {duplicatedSkillsRow1.map(({ Icon, color }, index) => (
+                        <div
+                          key={index}
+                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                            isDark
+                              ? "bg-[#1c1c1c]"
+                              : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                          }`}
+                        >
+                          <Icon className={`w-8 h-8 ${color}`} />
+                        </div>
+                      ))}
                     </div>
                     <div className='marquee__content' aria-hidden='true'>
-                      <SiReact className='w-10 h-10 text-[#61DAFB] mx-2' />
-                      <SiNextdotjs
-                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
-                      />
-                      <SiTailwindcss className='w-10 h-10 text-[#06B6D4] mx-2' />
-                      <SiFigma className='w-10 h-10 text-[#F24E1E] mx-2' />
-                      <FaGithub
-                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
-                      />
-                      <SiJavascript className='w-10 h-10 text-[#F7DF1E] mx-2' />
+                      {duplicatedSkillsRow1.map(({ Icon, color }, index) => (
+                        <div
+                          key={index}
+                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                            isDark
+                              ? "bg-[#1c1c1c]"
+                              : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                          }`}
+                        >
+                          <Icon className={`w-8 h-8 ${color}`} />
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Second Marquee (Reverse Direction) */}
-                  <div className='marquee marquee-mask w-full'>
-                    <div className='marquee__content reverse'>
-                      <SiTypescript className='w-10 h-10 text-[#3178C6] mx-2' />
-                      <SiNodedotjs className='w-10 h-10 text-[#339933] mx-2' />
-                      <SiExpress
-                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
-                      />
-                      <SiMongodb className='w-10 h-10 text-[#47A248] mx-2' />
-                      <SiPostgresql className='w-10 h-10 text-[#4169E1] mx-2' />
-                      <SiDocker className='w-10 h-10 text-[#2496ED] mx-2' />
-                      <SiGit className='w-10 h-10 text-[#F05032] mx-2' />
+                  {/* Second Marquee - Right to Left */}
+                  <div className='flex overflow-hidden select-none w-full mask-gradient'>
+                    <div
+                      className='marquee__content'
+                      style={{ animationDirection: "reverse" }}
+                    >
+                      {duplicatedSkillsRow2.map(({ Icon, color }, index) => (
+                        <div
+                          key={index}
+                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                            isDark
+                              ? "bg-[#1c1c1c]"
+                              : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                          }`}
+                        >
+                          <Icon className={`w-8 h-8 ${color}`} />
+                        </div>
+                      ))}
                     </div>
                     <div
-                      className='marquee__content reverse'
+                      className='marquee__content'
+                      style={{ animationDirection: "reverse" }}
                       aria-hidden='true'
                     >
-                      <SiTypescript className='w-10 h-10 text-[#3178C6] mx-2' />
-                      <SiNodedotjs className='w-10 h-10 text-[#339933] mx-2' />
-                      <SiExpress
-                        className={`w-10 h-10 ${isDark ? "text-white" : "text-black"} mx-2`}
-                      />
-                      <SiMongodb className='w-10 h-10 text-[#47A248] mx-2' />
-                      <SiPostgresql className='w-10 h-10 text-[#4169E1] mx-2' />
-                      <SiDocker className='w-10 h-10 text-[#2496ED] mx-2' />
-                      <SiGit className='w-10 h-10 text-[#F05032] mx-2' />
+                      {duplicatedSkillsRow2.map(({ Icon, color }, index) => (
+                        <div
+                          key={index}
+                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                            isDark
+                              ? "bg-[#1c1c1c]"
+                              : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                          }`}
+                        >
+                          <Icon className={`w-8 h-8 ${color}`} />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
 
               {/* NEW: Available for Work (Middle) */}
               <div
-                className={`col-span-1 p-7 flex flex-col border border-[#242424] rounded-[27.5px] ${card}`}
+                className={`col-span-1 p-7 flex flex-col border ${cardBorder} rounded-[27.5px] ${card}`}
               >
                 <div className='flex items-center gap-2'>
                   <span className='relative flex h-4 w-4'>
@@ -336,7 +374,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
               {/* 6. Contact (Right - Wide) */}
               <div
-                className={`col-span-1 p-7 flex flex-col justify-between border border-[#242424] rounded-[27.5px] ${card}`}
+                className={`col-span-1 p-7 flex flex-col justify-between border ${cardBorder} rounded-[27.5px] ${card}`}
               >
                 <div>
                   <span
@@ -351,7 +389,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
                 <button
                   onClick={handleCopyEmail}
-                  className={`w-full flex items-center justify-between px-6 py-[14px] rounded-[16px] border cursor-pointer transition-all duration-300 font-dmsans-light ${
+                  className={`w-full flex items-center justify-between px-6 py-[14px] rounded-[16px] border ${cardBorder} transition-all duration-300 font-dmsans-light ${
                     emailCopied
                       ? isDark
                         ? "border-green-500 bg-green-500/10"
