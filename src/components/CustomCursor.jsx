@@ -79,7 +79,7 @@ const CustomCursor = () => {
       `}</style>
       <div
         ref={cursorRef}
-        className={`fixed top-0 left-0 z-[9999] pointer-events-none rounded-full transition-[width,height,transform,background-color,border-radius] duration-300 ease-out flex items-center justify-center ${cursorColor}`}
+        className={`fixed top-0 left-0 z-9999 pointer-events-none rounded-full transition-[width,height,transform,background-color,border-radius] duration-300 ease-out flex items-center justify-center ${cursorColor}`}
         style={{
           transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
           width: baseSize.w,

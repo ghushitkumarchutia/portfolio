@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTheme } from "./context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 import {
   FaXTwitter,
   FaGithub,
@@ -23,7 +23,7 @@ import {
   SiDocker,
   SiGit,
 } from "react-icons/si";
-import noiseTexture from "./assets/noise.jpg";
+import noiseTexture from "../assets/noise.jpg";
 
 const ArrowIcon = ({ className = "" }) => (
   <svg

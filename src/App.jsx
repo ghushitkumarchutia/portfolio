@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Hero from "./Hero";
-import MobileHero from "./MobileHero";
-import About from "./About";
-import Project from "./Project";
-import Skill from "./Skill";
+import Hero from "./sections/Hero";
+import MobileHero from "./sections/MobileHero";
+import About from "./sections/About";
+import Project from "./sections/Project";
+import Skill from "./sections/Skill";
 
 function App() {
   const [currentView, setCurrentView] = useState("hero");

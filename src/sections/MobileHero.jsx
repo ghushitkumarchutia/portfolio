@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTheme } from "./context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 import {
   FaXTwitter,
   FaGithub,
@@ -11,7 +11,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { IoCopyOutline } from "react-icons/io5";
 import { SiReact, SiNextdotjs, SiTailwindcss, SiFigma } from "react-icons/si";
-import noiseTexture from "./assets/noise.jpg";
+import noiseTexture from "../assets/noise.jpg";
 
 // Custom Arrow Icon SVG
 const ArrowIcon = ({ className = "" }) => (

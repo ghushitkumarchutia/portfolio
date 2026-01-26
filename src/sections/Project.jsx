@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useTheme } from "./context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 import { IoClose } from "react-icons/io5";
-import noiseTexture from "./assets/noise.jpg";
+import noiseTexture from "../assets/noise.jpg";
 
 // Arrow Icon SVG - defined outside to avoid recreation on every render
 const ArrowIcon = ({ className = "" }) => (
