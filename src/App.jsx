@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Hero from "./Hero";
-import NewHero from "./NewHero";
 import MobileHero from "./MobileHero";
 import About from "./About";
 import Project from "./Project";
@@ -20,7 +19,7 @@ function App() {
       ) : (
         <>
           <div className='hidden md:block'>
-            <NewHero
+            <Hero
               onShowAbout={() => setCurrentView("about")}
               onShowProject={() => setCurrentView("project")}
               onShowSkill={() => setCurrentView("skill")}

@@ -200,7 +200,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               className={`w-[80px] h-[44px] rounded-full px-1 relative flex items-center transition-colors duration-500 border-[1.7px] ${isDark ? "bg-[#252525] border-[#444]" : "bg-[#d0d0d0] border-[#b0b0b0]"}`}
             >
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center bg-[#0a0a0a] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isDark ? "ml-0" : "ml-[36px]"}`}
+                className={`w-8 h-8 rounded-full flex items-center justify-center bg-[#0a0a0a] transition-all duration-500 ease-in-out ${isDark ? "ml-0" : "ml-[36px]"}`}
               >
                 <IoMoon
                   className={`w-4 h-4 text-[#d4c896] absolute transition-all duration-300 ease-out ${isDark ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
@@ -220,7 +220,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           <img
             src='src/assets/projects.jpg'
             alt='Projects'
-            className='w-full h-full object-cover scale-105 transition-transform duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-100'
+            className='w-full h-full object-cover scale-105 transition-transform duration-600 ease-in-out group-hover:scale-100'
           />
           <div
             className='absolute inset-0 z-10'

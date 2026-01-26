@@ -145,18 +145,18 @@ const Project = ({ onClose }) => {
           <img
             src={project.image}
             alt={project.title}
-            className='w-full h-full object-cover md:scale-105 md:group-hover:scale-100 transition-transform duration-600 ease-[cubic-bezier(0.4,0,0.2,1)]'
+            className='w-full h-full object-cover md:scale-105 md:group-hover:scale-100 transition-transform duration-600 ease-in-out'
           />
           {/* Gradient overlay - visible on mobile, hover on desktop */}
           <div
-            className='absolute inset-0 z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-600 ease-[cubic-bezier(0.4,0,0.2,1)]'
+            className='absolute inset-0 z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-600 ease-in-out'
             style={{
               background:
                 "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 70%)",
             }}
           />
           {/* Description text - visible on mobile, slides up on desktop hover */}
-          <div className='absolute bottom-0 left-0 right-0 z-20 px-3 md:px-5 py-3 md:py-4 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-600 ease-[cubic-bezier(0.4,0,0.2,1)]'>
+          <div className='absolute bottom-0 left-0 right-0 z-20 px-3 md:px-5 py-3 md:py-4 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-600 ease-in-out'>
             <p className='text-[14px] md:text-[20px] font-bricolage-light text-white/90 leading-snug'>
               {project.description}
             </p>
