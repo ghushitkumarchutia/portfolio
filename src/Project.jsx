@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "./context/ThemeContext";
 import { IoClose } from "react-icons/io5";
 import noiseTexture from "./assets/noise.jpg";
 
@@ -14,7 +15,7 @@ const ArrowIcon = ({ className = "" }) => (
   </svg>
 );
 const Project = ({ onClose }) => {
-  const [isDark] = useState(true);
+  const { isDark } = useTheme();
   const [isSpinning, setIsSpinning] = useState(false);
 
   // Entry animation - spin X icon on mount
@@ -26,6 +27,15 @@ const Project = ({ onClose }) => {
 
   const bg = isDark ? "bg-[#090909]" : "bg-[#e5e5e5]";
   const textLabel = isDark ? "text-[#555]" : "text-[#888]";
+  const borderColor = isDark ? "border-[#242424]" : "border-[#ccc]";
+  const separatorColor = isDark ? "bg-[#242424]" : "bg-[#ccc]";
+
+  const cardBg = isDark ? "bg-[#141414]" : "bg-[#f5f5f5]";
+  const cardBorder = isDark ? "border-[#242424]" : "border-[#ddd]";
+  const cardTextTitle = isDark ? "text-white" : "text-[#1a1a1a]";
+  const cardTextSubtitle = isDark ? "text-[#777]" : "text-[#666]";
+  const pillBg = isDark ? "bg-[#1a1a1a]" : "bg-[#e5e5e5]";
+  const pillText = isDark ? "text-[#777]" : "text-[#555]";
 
   // Dev Projects Data
   const devProjects = [
@@ -127,7 +137,9 @@ const Project = ({ onClose }) => {
       className='group block'
     >
       {/* Outer Card Container with padding */}
-      <div className='bg-[#141414] rounded-[24px] md:rounded-[30px] border border-[#242424] p-[12px] md:p-[17px]'>
+      <div
+        className={`${cardBg} rounded-[24px] md:rounded-[30px] border ${cardBorder} p-[12px] md:p-[17px] transition-colors duration-300`}
+      >
         {/* Image Container */}
         <div className='rounded-[15px] md:rounded-[17px] overflow-hidden aspect-16/10 relative'>
           <img
@@ -154,10 +166,14 @@ const Project = ({ onClose }) => {
         {/* Project Info - larger height and text */}
         <div className='pt-3 md:pt-5 px-1 md:pb-[5px]'>
           <div>
-            <h3 className='text-[18px] md:text-[22px] font-dmsans-light text-white leading-tight truncate'>
+            <h3
+              className={`text-[18px] md:text-[22px] font-dmsans-light ${cardTextTitle} leading-tight truncate transition-colors duration-300`}
+            >
               {project.title}
             </h3>
-            <p className='text-[14px] md:text-[16px] font-bricolage-light mt-1.5 text-[#777]'>
+            <p
+              className={`text-[14px] md:text-[16px] font-bricolage-light mt-1.5 ${cardTextSubtitle} transition-colors duration-300`}
+            >
               {project.subtitle}
             </p>
           </div>
@@ -168,25 +184,33 @@ const Project = ({ onClose }) => {
               {project.tech.map((item, idx) => (
                 <span
                   key={idx}
-                  className='text-[10px] md:text-[12px] font-bricolage-light px-[10px] py-[3px] rounded-[8px] bg-[#1a1a1a] text-[#777]'
+                  className={`text-[10px] md:text-[12px] font-bricolage-light px-[10px] py-[3px] rounded-[8px] ${pillBg} ${pillText} transition-colors duration-300`}
                 >
                   {item}
                 </span>
               ))}
             </div>
             {/* Arrow button - white on mobile, hover animation on desktop */}
-            <div className='w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center border-[1.4px] border-[#333] overflow-hidden relative shrink-0 -mt-3'>
+            <div
+              className={`w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center border-[1.4px] ${cardBorder} overflow-hidden relative shrink-0 -mt-3 transition-colors duration-300`}
+            >
               {/* Mobile: single white arrow, Desktop: pass-through animation */}
               {/* Arrow that exits (moves to top-right on hover) - hidden on mobile */}
-              <span className='hidden md:block w-5 h-5 absolute text-[#666] group-hover:text-white transition-all duration-500 ease-out group-hover:translate-x-10 group-hover:-translate-y-10'>
+              <span
+                className={`hidden md:block w-5 h-5 absolute text-[#666] group-hover:${isDark ? "text-white" : "text-black"} transition-all duration-500 ease-out group-hover:translate-x-10 group-hover:-translate-y-10`}
+              >
                 <ArrowIcon className='w-full h-full' />
               </span>
               {/* Arrow that enters on desktop (comes from bottom-left on hover) - hidden on mobile */}
-              <span className='hidden md:block w-5 h-5 absolute text-[#666] group-hover:text-white transition-all duration-500 ease-out -translate-x-10 translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0'>
+              <span
+                className={`hidden md:block w-5 h-5 absolute text-[#666] group-hover:${isDark ? "text-white" : "text-black"} transition-all duration-500 ease-out -translate-x-10 translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0`}
+              >
                 <ArrowIcon className='w-full h-full' />
               </span>
-              {/* Mobile only: static white arrow */}
-              <span className='md:hidden w-5 h-5 text-white'>
+              {/* Mobile only: static arrow */}
+              <span
+                className={`md:hidden w-5 h-5 ${isDark ? "text-white" : "text-black"}`}
+              >
                 <ArrowIcon className='w-full h-full' />
               </span>
             </div>
@@ -213,7 +237,7 @@ const Project = ({ onClose }) => {
       />
 
       <div
-        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 border-[#242424] overflow-visible ${bg}`}
+        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${borderColor} overflow-visible ${bg}`}
       >
         {/* Close Button */}
         <button
@@ -236,7 +260,9 @@ const Project = ({ onClose }) => {
               >
                 DEVELOPMENT PROJECTS
               </span>
-              <div className='w-full h-[1.5px] bg-[#242424] mt-[10px]'></div>
+              <div
+                className={`w-full h-[1.5px] ${separatorColor} mt-[10px]`}
+              ></div>
             </div>
 
             {/* Grid - 1 column mobile, 2 columns desktop */}
@@ -256,7 +282,9 @@ const Project = ({ onClose }) => {
               >
                 UI/UX DESIGN PROJECTS
               </span>
-              <div className='w-full h-[1.5px] bg-[#242424] mt-[10px]'></div>
+              <div
+                className={`w-full h-[1.5px] ${separatorColor} mt-[10px]`}
+              ></div>
             </div>
 
             {/* Grid - 1 column mobile, 2 columns desktop */}

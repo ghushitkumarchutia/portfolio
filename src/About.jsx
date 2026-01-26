@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "./context/ThemeContext";
 import { IoClose, IoChevronBack, IoChevronForward } from "react-icons/io5";
 import noiseTexture from "./assets/noise.jpg";
 
 const About = ({ onClose }) => {
-  const [isDark] = useState(true);
+  const { isDark } = useTheme();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
 

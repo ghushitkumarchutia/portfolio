@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTheme } from "./context/ThemeContext";
 import {
   FaXTwitter,
   FaGithub,
@@ -25,7 +26,7 @@ const ArrowIcon = ({ className = "" }) => (
 );
 
 const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
-  const [isDark, setIsDark] = useState(true);
+  const { isDark, toggleTheme } = useTheme();
   const [emailCopied, setEmailCopied] = useState(false);
 
   const myEmail = "ghushitchutia@gmail.com";
@@ -193,7 +194,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           {/* Theme Toggle */}
           <div
             className={`border border-[#242424] rounded-[25px] w-[120px] h-[160px] flex items-center justify-center cursor-pointer ${card}`}
-            onClick={() => setIsDark(!isDark)}
+            onClick={toggleTheme}
           >
             <div
               className={`w-[80px] h-[44px] rounded-full px-1 relative flex items-center transition-colors duration-500 border-[1.7px] ${isDark ? "bg-[#252525] border-[#444]" : "bg-[#d0d0d0] border-[#b0b0b0]"}`}

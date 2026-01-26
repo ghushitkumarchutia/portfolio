@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "./context/ThemeContext";
 import { IoClose } from "react-icons/io5";
 import noiseTexture from "./assets/noise.jpg";
 
 const Skill = ({ onClose }) => {
-  const [isDark] = useState(true);
+  const { isDark } = useTheme();
   const [isSpinning, setIsSpinning] = useState(false);
 
   // Entry animation - spin X icon on mount
@@ -15,6 +16,12 @@ const Skill = ({ onClose }) => {
 
   const bg = isDark ? "bg-[#090909]" : "bg-[#e5e5e5]";
   const textLabel = isDark ? "text-[#555]" : "text-[#888]";
+  const pillClass = isDark
+    ? "bg-[#1a1a1a] text-[#c2c2c2] hover:text-white"
+    : "bg-[#dcdcdc] text-[#333] hover:text-black";
+
+  const separatorColor = isDark ? "bg-[#242424]" : "bg-[#ccc]";
+  const borderColor = isDark ? "border-[#242424]" : "border-[#ccc]";
 
   // Handle close with spin animation
   const handleClose = () => {
@@ -78,7 +85,7 @@ const Skill = ({ onClose }) => {
       />
 
       <div
-        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 border-[#242424] overflow-visible ${bg}`}
+        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${borderColor} overflow-visible ${bg}`}
       >
         {/* Close Button */}
         <button
@@ -102,7 +109,9 @@ const Skill = ({ onClose }) => {
                 >
                   {category.label}
                 </span>
-                <div className='w-[170px] mx-auto h-[1.5px] bg-[#242424] mt-[5px]'></div>
+                <div
+                  className={`w-[170px] mx-auto h-[1.5px] ${separatorColor} mt-[5px]`}
+                ></div>
               </div>
 
               {/* Skills Grid - centered */}
@@ -110,7 +119,7 @@ const Skill = ({ onClose }) => {
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className='text-[13px] md:text-[16.5px] font-bricolage-light px-5 md:px-7 py-[12px] md:py-[14px] rounded-full bg-[#1a1a1a] text-[#c2c2c2] hover:text-white transition-colors duration-300'
+                    className={`text-[13px] md:text-[16.5px] font-bricolage-light px-5 md:px-7 py-[12px] md:py-[14px] rounded-full transition-colors duration-300 ${pillClass}`}
                   >
                     {skill}
                   </span>

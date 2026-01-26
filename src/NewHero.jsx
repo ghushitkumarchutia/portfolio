@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "./context/ThemeContext";
 import {
   FaXTwitter,
   FaGithub,
@@ -37,19 +38,10 @@ const ArrowIcon = ({ className = "" }) => (
 );
 
 const NewHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
-  const [isDark, setIsDark] = useState(true);
+  const { isDark, toggleTheme } = useTheme();
   const [emailCopied, setEmailCopied] = useState(false);
-  const [, setCurrentTime] = useState(new Date());
 
   const myEmail = "ghushitchutia@gmail.com";
-
-  // Live clock - updates every second
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(myEmail);
@@ -123,7 +115,7 @@ const NewHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             {/* 3. Theme Toggle (Bottom) */}
             <div
               className={`rounded-[27.5px] flex items-center justify-center border border-[#242424] ${card}`}
-              onClick={() => setIsDark(!isDark)}
+              onClick={toggleTheme}
             >
               <div
                 className={`w-[104px] h-[52px] rounded-full px-1 relative flex items-center cursor-pointer transition-colors duration-500 border-[1.7px] ${isDark ? "bg-[#252525] border-[#444]" : "bg-[#d0d0d0] border-[#b0b0b0]"}`}
@@ -183,7 +175,7 @@ const NewHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     </span>
                     <button
                       onClick={onShowAbout}
-                      className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer border-[1.8px] overflow-hidden relative ${isDark ? "border-[#333]" : "border-[#ddd]"} transition-colors`}
+                      className={`w-14 h-14 rounded-full flex items-center justify-center cursor-pointer border-[1.8px] overflow-hidden relative ${isDark ? "border-[#333] hover:border-neutral-600 hover:bg-neutral-600/15" : "border-[#ddd] hover:border-neutral-300 hover:bg-neutral-200/15"} transition-colors`}
                     >
                       <span className='w-6 h-6 absolute transition-transform duration-500 ease-out group-hover:translate-x-8 group-hover:-translate-y-8'>
                         <ArrowIcon className='w-full h-full' />
