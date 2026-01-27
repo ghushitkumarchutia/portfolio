@@ -17,6 +17,8 @@ import {
   SiJavascript,
 } from "react-icons/si";
 import noiseTexture from "../assets/noise.jpg";
+import profile from "../assets/images/profile.png";
+import projects from "../assets/images/projects.jpg";
 
 const ArrowIcon = ({ className = "" }) => (
   <svg
@@ -76,7 +78,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
       <div className={`space-y-[10px]`}>
         <div className={`rounded-[34px] overflow-hidden aspect-square ${card}`}>
           <img
-            src='src/assets/profile.png'
+            src={profile}
             alt='Profile'
             className='w-full h-full object-cover'
           />
@@ -177,7 +179,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           className={`rounded-[34px] overflow-hidden relative group cursor-pointer aspect-[1.5/1] ${card}`}
         >
           <img
-            src='src/assets/projects.jpg'
+            src={projects}
             alt='Projects'
             className='w-full h-full object-cover scale-105 transition-transform duration-600 ease-in-out group-hover:scale-100'
           />

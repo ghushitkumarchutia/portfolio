@@ -24,6 +24,8 @@ import {
   SiGit,
 } from "react-icons/si";
 import noiseTexture from "../assets/noise.jpg";
+import profile from "../assets/images/profile.png";
+import projects from "../assets/images/projects.jpg";
 
 const ArrowIcon = ({ className = "" }) => (
   <svg
@@ -97,7 +99,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           <div className='w-[350px] grid grid-rows-[350px_1fr_160px] gap-3 h-full shrink-0'>
             <div className={`rounded-[27.5px] overflow-hidden ${card}`}>
               <img
-                src='src/assets/profile.png'
+                src={profile}
                 alt='Profile'
                 className='w-full h-full object-cover'
               />
@@ -108,7 +110,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               className={`rounded-[27.5px] overflow-hidden relative group w-full text-left p-0 ${card}`}
             >
               <img
-                src='src/assets/projects.jpg'
+                src={projects}
                 alt='Projects'
                 className='w-full h-full object-cover scale-105 transition-transform duration-600 ease-in-out group-hover:scale-100'
               />
