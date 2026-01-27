@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Hero from "./sections/Hero";
 import MobileHero from "./sections/MobileHero";
 import About from "./sections/About";
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <>
+      <SpeedInsights />
       <div className='hidden md:block'>
         <Hero
           onShowAbout={() => setCurrentView("about")}
