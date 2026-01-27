@@ -42,7 +42,6 @@ body {
   --marquee-gap: 0.5rem;
 }
 
-/* Infinite Marquee Animation - Seamless Loop */
 .marquee {
   display: flex;
   overflow: hidden;
@@ -117,7 +116,6 @@ body {
   animation-name: scroll-reverse;
 }
 
-/* Fade edges mask for marquee */
 .marquee-mask {
   mask-image: linear-gradient(
     to right,
@@ -135,7 +133,6 @@ body {
   );
 }
 
-/* Spin Once Animation - for close button X icon */
 @keyframes spin-once {
   from {
     transform: rotate(0deg);

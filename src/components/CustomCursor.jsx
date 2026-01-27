@@ -73,7 +73,7 @@ const CustomCursor = () => {
   return (
     <>
       <style>{`
-        body, a, button, input, textarea, p, span, h1, h2, h3, h4, h5, h6 {
+        *, *::before, *::after {
           cursor: none !important;
         }
       `}</style>
