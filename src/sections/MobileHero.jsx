@@ -4,7 +4,6 @@ import {
   FaXTwitter,
   FaGithub,
   FaLinkedinIn,
-  FaDribbble,
   FaInstagram,
 } from "react-icons/fa6";
 import { HiOutlineMail } from "react-icons/hi";
@@ -19,7 +18,6 @@ import {
 } from "react-icons/si";
 import noiseTexture from "../assets/noise.jpg";
 
-// Custom Arrow Icon SVG
 const ArrowIcon = ({ className = "" }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -64,20 +62,18 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
   return (
     <section className={`relative z-10 min-h-screen p-2 ${bg}`}>
-      {/* Noise Texture Overlay */}
       <div
         className='absolute inset-0 z-20 pointer-events-none'
         style={{
           backgroundImage: `url(${noiseTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: isDark ? 0.03 : 0.02,
+          opacity: 0.05,
         }}
         aria-hidden='true'
       />
 
       <div className={`space-y-[10px]`}>
-        {/* 1. Profile Photo */}
         <div className={`rounded-[34px] overflow-hidden aspect-square ${card}`}>
           <img
             src='src/assets/profile.png'
@@ -85,7 +81,6 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             className='w-full h-full object-cover'
           />
         </div>
-        {/* 2. Hero Intro */}
         <div
           className={`rounded-[30px] px-9 py-10 flex flex-col justify-center border ${cardBorder} ${card}`}
         >
@@ -96,7 +91,6 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             Full-Stack Developer & UI/UX Designer
           </p>
         </div>
-        {/* 3. About */}
         <div
           className={`border ${cardBorder} rounded-[30px] pt-[30px] pr-4 pb-4 pl-8 flex flex-col justify-between group transition-colors duration-150 ${isDark ? "hover:bg-white/5" : ""} ${card}`}
         >
@@ -122,26 +116,18 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </button>
           </div>
         </div>
-        {/* 4. Row: Tech Stack (Wide) + Theme Toggle (Narrow) */}
         <div className='grid grid-cols-[1fr_auto] gap-[10px]'>
-          {/* Tech Stack */}
-          {/* Tech Stack */}
           <div
             onClick={onShowSkill}
             className={`border ${cardBorder} rounded-[25px] p-5 h-[160px] flex flex-col items-center overflow-hidden cursor-pointer group ${card}`}
           >
-            {/* Header Text */}
             <span
               className={`text-[17px] tracking-wide font-dmsans-light uppercase mb-2 ${textLabel}`}
             >
               Click to view all
             </span>
-
-            {/* Container for marquee - constrained width */}
             <div className='flex-1 w-[95%] flex items-center justify-center relative overflow-hidden'>
-              {/* Marquee */}
               <div className='marquee marquee-mask w-full'>
-                {/* First content container */}
                 <div className='marquee__content gap-4 pr-4'>
                   {duplicatedSkills.map((skill, index) => (
                     <div
@@ -152,7 +138,6 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     </div>
                   ))}
                 </div>
-                {/* Duplicate content container for seamless loop */}
                 <div className='marquee__content gap-4 pr-4' aria-hidden='true'>
                   {duplicatedSkills.map((skill, index) => (
                     <div
@@ -167,7 +152,6 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </div>
           </div>
 
-          {/* Theme Toggle */}
           <div
             className={`border ${cardBorder} rounded-[25px] w-[120px] h-[160px] flex items-center justify-center cursor-pointer ${card}`}
             onClick={toggleTheme}
@@ -188,7 +172,6 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </div>
           </div>
         </div>
-        {/* 5. Projects Navigation */}
         <div
           onClick={onShowProject}
           className={`rounded-[34px] overflow-hidden relative group cursor-pointer aspect-[1.5/1] ${card}`}
@@ -207,7 +190,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           />
           <div className='absolute bottom-0 left-0 right-0 z-20 flex items-center justify-between pl-7 pr-4 py-6'>
             <span className='text-[24px] font-dmsans-light text-white'>
-              Click to view all projects
+              Click & view projects
             </span>
             <div className='w-9 h-9 flex items-center justify-center'>
               <span className='w-5 h-5 text-white rotate-45'>
@@ -216,7 +199,6 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </div>
           </div>
         </div>
-        {/* 6. Contact */}
         <div
           className={`border ${cardBorder} rounded-[30px] p-7 flex flex-col justify-between ${card}`}
         >
@@ -254,11 +236,10 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             )}
           </button>
         </div>
-        {/* 7. Social Icons */}
         <div className={`rounded-[34px]`}>
           <div className='grid grid-cols-5 gap-2'>
             <a
-              href='#'
+              href='https://www.linkedin.com/in/ghushitkumarchutia/'
               className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <FaLinkedinIn
@@ -266,7 +247,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               />
             </a>
             <a
-              href='#'
+              href='https://github.com/ghushitkumarchutia'
               className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <FaGithub
@@ -274,7 +255,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               />
             </a>
             <a
-              href='#'
+              href='mailto:ghushitchutia@gamil.com'
               className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <HiOutlineMail
@@ -282,7 +263,7 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               />
             </a>
             <a
-              href='#'
+              href='https://www.instagram.com/ghushittt/'
               className={`aspect-square flex items-center justify-center border rounded-[18px] transition-all duration-200 ${isDark ? "bg-[#1a1a1a]" : "bg-white"} ${cardBorder}`}
             >
               <FaInstagram

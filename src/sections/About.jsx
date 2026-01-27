@@ -66,7 +66,7 @@ const About = ({ onClose }) => {
           backgroundImage: `url(${noiseTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: isDark ? 0.05 : 0.04,
+          opacity: 0.05,
         }}
         aria-hidden='true'
       />
@@ -178,6 +178,8 @@ const About = ({ onClose }) => {
 
               <div className='grid grid-rows-[0.8fr_1fr] md:grid-rows-2 gap-2 md:gap-3 h-full'>
                 <a
+                  href='https://drive.google.com/file/d/1zNOy4y767lp-dPli1w4V9gurMLGNsgF8/view?usp=share_link'
+                  target='_blank'
                   rel='noopener noreferrer'
                   className={`border ${cardBorder} rounded-[20px] md:rounded-[27.5px] p-3 lg:p-6 flex flex-col items-center justify-center gap-2 lg:gap-3 cursor-pointer ${card} hover:bg-white/5`}
                 >

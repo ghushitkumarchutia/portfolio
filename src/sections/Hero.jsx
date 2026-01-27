@@ -80,25 +80,21 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
   return (
     <section className={`relative z-10 h-screen overflow-hidden p-3 ${bg}`}>
-      {/* Noise Texture Overlay */}
       <div
         className='absolute inset-0 z-20 pointer-events-none'
         style={{
           backgroundImage: `url(${noiseTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: isDark ? 0.05 : 0.05,
+          opacity: 0.05,
         }}
         aria-hidden='true'
       />
       <div
         className={`flex flex-col rounded-[36px] border-2 ${cardBorder} h-full w-full relative p-3`}
       >
-        {/* Main Grid Layout */}
         <div className='h-full flex gap-3'>
-          {/* === LEFT COLUMN (Fixed Width) === */}
           <div className='w-[350px] grid grid-rows-[350px_1fr_160px] gap-3 h-full shrink-0'>
-            {/* 1. Profile Photo (Top) */}
             <div className={`rounded-[27.5px] overflow-hidden ${card}`}>
               <img
                 src='src/assets/profile.png'
@@ -107,7 +103,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               />
             </div>
 
-            {/* 2. Projects Navigation (Middle) */}
             <button
               onClick={onShowProject}
               className={`rounded-[27.5px] overflow-hidden relative group w-full text-left p-0 ${card}`}
@@ -136,7 +131,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               </div>
             </button>
 
-            {/* 3. Theme Toggle (Bottom) */}
             <div
               className={`rounded-[27.5px] flex items-center justify-center border ${cardBorder} ${card}`}
             >
@@ -158,15 +152,11 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             </div>
           </div>
 
-          {/* === RIGHT SIDE (Flex Grow) === */}
           <div className='flex-1 grid grid-rows-[1fr_240px] gap-3 h-full'>
-            {/* --- TOP ROW (merged hero + social) --- */}
             <div className='grid grid-cols-[1fr_95px] gap-3 h-full'>
-              {/* 4. Merged Hero + About (Top Left) */}
               <div
                 className={`col-span-1 h-full rounded-[27.5px] pl-12 pr-10 pb-8 pt-14 flex flex-col justify-between border ${cardBorder} relative group ${card}`}
               >
-                {/* Hero Logic (Top Half) */}
                 <div className='flex flex-col justify-center'>
                   <h1 className='text-[54px] font-dmsans mb-2 leading-tight'>
                     Hi, I'm Ghushit ⎯
@@ -182,7 +172,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   className={`w-full h-[1.5px] ${isDark ? "bg-[#242424]" : "bg-[#d1d5db]"}`}
                 />
 
-                {/* About Logic (Bottom Half) */}
                 <div className='flex flex-col justify-center relative'>
                   <span
                     className={`text-[22px] tracking-[0.2em] font-dmsans-light uppercase mb-4 ${textLabel}`}
@@ -194,7 +183,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     interfaces.
                   </p>
 
-                  {/* Arrow Button (Bottom Right) */}
                   <div className='absolute flex items-center bottom-0 right-0'>
                     <button
                       onClick={onShowAbout}
@@ -211,7 +199,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                 </div>
               </div>
 
-              {/* 7. Social Icons (Top Right - Vertical) */}
               <div className='flex flex-col gap-[10px] h-full'>
                 <a
                   href='https://www.linkedin.com/in/ghushitkumarchutia/'
@@ -256,9 +243,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               </div>
             </div>
 
-            {/* --- BOTTOM ROW (skills + available + contact) --- */}
             <div className='grid grid-cols-[260px_240px_1fr] gap-3'>
-              {/* 5. Skills (Left) */}
               <button
                 onClick={onShowSkill}
                 className={`col-span-1 p-5 flex flex-col items-center justify-center overflow-hidden w-full text-left border ${cardBorder} rounded-[27.5px] group ${card}`}
@@ -272,7 +257,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   </span>
                 </span>
                 <div className='flex-1 w-full flex flex-col justify-center gap-2 relative overflow-hidden pb-1'>
-                  {/* First Marquee - Left to Right */}
                   <div className='flex overflow-hidden select-none w-full mask-gradient'>
                     <div className='marquee__content'>
                       {duplicatedSkillsRow1.map(({ Icon, color }, index) => (
@@ -304,7 +288,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     </div>
                   </div>
 
-                  {/* Second Marquee - Right to Left */}
                   <div className='flex overflow-hidden select-none w-full mask-gradient'>
                     <div
                       className='marquee__content'
@@ -345,7 +328,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                 </div>
               </button>
 
-              {/* NEW: Available for Work (Middle) */}
               <div
                 className={`col-span-1 p-7 flex flex-col border ${cardBorder} rounded-[27.5px] ${card}`}
               >
@@ -372,7 +354,6 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                 </div>
               </div>
 
-              {/* 6. Contact (Right - Wide) */}
               <div
                 className={`col-span-1 p-7 flex flex-col justify-between border ${cardBorder} rounded-[27.5px] ${card}`}
               >
