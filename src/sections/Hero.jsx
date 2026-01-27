@@ -23,7 +23,7 @@ import {
   SiDocker,
   SiGit,
 } from "react-icons/si";
-import noiseTexture from "../assets/noise.jpg";
+import noiseTexture from "../assets/images/noise.jpg";
 import profile from "../assets/images/profile.png";
 import projects from "../assets/images/projects.jpg";
 
