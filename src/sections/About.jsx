@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { IoClose, IoChevronBack, IoChevronForward } from "react-icons/io5";
-import noiseTexture from "../assets/images/noise.jpg";
+import noiseTexture from "../assets/images/noise.webp";
 
 const About = ({ onClose }) => {
   const { isDark } = useTheme();

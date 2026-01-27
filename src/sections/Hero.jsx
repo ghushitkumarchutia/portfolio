@@ -23,9 +23,9 @@ import {
   SiDocker,
   SiGit,
 } from "react-icons/si";
-import noiseTexture from "../assets/images/noise.jpg";
-import profile from "../assets/images/profile.png";
-import projects from "../assets/images/projects.jpg";
+import noiseTexture from "../assets/images/noise.webp";
+import profile from "../assets/images/profile.webp";
+import projects from "../assets/images/projects.webp";
 
 const ArrowIcon = ({ className = "" }) => (
   <svg
