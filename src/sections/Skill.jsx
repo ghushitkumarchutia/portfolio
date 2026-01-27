@@ -7,7 +7,6 @@ const Skill = ({ onClose }) => {
   const { isDark } = useTheme();
   const [isSpinning, setIsSpinning] = useState(false);
 
-  // Entry animation - spin X icon on mount
   useEffect(() => {
     setIsSpinning(true);
     const timer = setTimeout(() => setIsSpinning(false), 500);
@@ -23,7 +22,6 @@ const Skill = ({ onClose }) => {
   const separatorColor = isDark ? "bg-[#242424]" : "bg-[#e5e7eb]";
   const cardBorder = isDark ? "border-[#242424]" : "border-[#d1d5db]";
 
-  // Handle close with spin animation
   const handleClose = () => {
     setIsSpinning(true);
     setTimeout(() => {
@@ -31,7 +29,6 @@ const Skill = ({ onClose }) => {
     }, 400);
   };
 
-  // Skills Data by Category
   const skillCategories = [
     {
       label: "LANGUAGES",
@@ -72,7 +69,6 @@ const Skill = ({ onClose }) => {
     <section
       className={`relative z-10 h-screen overflow-y-auto md:pt-4 md:px-4 pb-0 ${bg}`}
     >
-      {/* Noise Texture Overlay */}
       <div
         className='fixed inset-0 z-20 pointer-events-none'
         style={{
@@ -85,9 +81,8 @@ const Skill = ({ onClose }) => {
       />
 
       <div
-        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${cardBorder} overflow-visible ${bg}`}
+        className={`min-h-full md:rounded-t-[36px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${cardBorder} overflow-visible ${bg}`}
       >
-        {/* Close Button */}
         <button
           onClick={handleClose}
           className={`group absolute top-[60px] md:top-[70px] left-1/2 -translate-x-1/2 z-30 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer border-2 overflow-hidden ${isDark ? "border-[#333] hover:bg-neutral-600/15" : "border-[#d1d5db] hover:bg-black/5"} transition-colors`}
@@ -97,12 +92,9 @@ const Skill = ({ onClose }) => {
           />
         </button>
 
-        {/* Main Content */}
-        <div className='max-w-[900px] mx-auto pt-30 md:pt-32 pb-8'>
-          {/* Skills Categories */}
+        <div className='max-w-[900px] mx-auto pt-[120px] md:pt-32 pb-8'>
           {skillCategories.map((category, catIndex) => (
             <div key={catIndex} className='mb-7 md:mb-10'>
-              {/* Category Header */}
               <div className='mb-5 md:mb-6 text-center'>
                 <span
                   className={`text-[14px] md:text-[18px] font-dmsans-light tracking-[0.2em] uppercase ${textLabel}`}
@@ -110,11 +102,10 @@ const Skill = ({ onClose }) => {
                   {category.label}
                 </span>
                 <div
-                  className={`w-[170px] mx-auto h-[1.5px] ${separatorColor} mt-[5px]`}
+                  className={`md:w-[300px] w-[200px] mx-auto h-[1.5px] ${separatorColor} mt-[5px]`}
                 ></div>
               </div>
 
-              {/* Skills Grid - centered */}
               <div className='flex flex-wrap justify-center gap-2 md:gap-3'>
                 {category.skills.map((skill, skillIndex) => (
                   <span

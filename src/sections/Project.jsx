@@ -3,7 +3,6 @@ import { useTheme } from "../context/ThemeContext";
 import { IoClose } from "react-icons/io5";
 import noiseTexture from "../assets/noise.jpg";
 
-// Arrow Icon SVG - defined outside to avoid recreation on every render
 const ArrowIcon = ({ className = "" }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -18,7 +17,6 @@ const Project = ({ onClose }) => {
   const { isDark } = useTheme();
   const [isSpinning, setIsSpinning] = useState(false);
 
-  // Entry animation - spin X icon on mount
   useEffect(() => {
     setIsSpinning(true);
     const timer = setTimeout(() => setIsSpinning(false), 500);
@@ -36,7 +34,6 @@ const Project = ({ onClose }) => {
   const pillBg = isDark ? "bg-[#1a1a1a]" : "bg-[#f4f4f5]";
   const pillText = isDark ? "text-[#777]" : "text-[#555]";
 
-  // Dev Projects Data
   const devProjects = [
     {
       title: "DimLight – Sleep Tracker",
@@ -79,7 +76,6 @@ const Project = ({ onClose }) => {
     },
   ];
 
-  // UI/UX Projects Data
   const uiuxProjects = [
     {
       title: "Mobile Banking App",
@@ -119,7 +115,6 @@ const Project = ({ onClose }) => {
     },
   ];
 
-  // Handle close with spin animation
   const handleClose = () => {
     setIsSpinning(true);
     setTimeout(() => {
@@ -127,7 +122,6 @@ const Project = ({ onClose }) => {
     }, 400);
   };
 
-  // Project Card Component - matching reference design
   const ProjectCard = ({ project }) => (
     <a
       href={project.link}
@@ -135,18 +129,15 @@ const Project = ({ onClose }) => {
       rel='noopener noreferrer'
       className='group block'
     >
-      {/* Outer Card Container with padding */}
       <div
         className={`${cardBg} rounded-[24px] md:rounded-[30px] border ${cardBorder} p-[12px] md:p-[17px] transition-colors duration-300`}
       >
-        {/* Image Container */}
         <div className='rounded-[15px] md:rounded-[17px] overflow-hidden aspect-16/10 relative'>
           <img
             src={project.image}
             alt={project.title}
             className='w-full h-full object-cover md:scale-105 md:group-hover:scale-100 transition-transform duration-600 ease-in-out'
           />
-          {/* Gradient overlay - visible on mobile, hover on desktop */}
           <div
             className='absolute inset-0 z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-600 ease-in-out'
             style={{
@@ -154,7 +145,6 @@ const Project = ({ onClose }) => {
                 "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 70%)",
             }}
           />
-          {/* Description text - visible on mobile, slides up on desktop hover */}
           <div className='absolute bottom-0 left-0 right-0 z-20 px-3 md:px-5 py-3 md:py-4 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-600 ease-in-out'>
             <p className='text-[14px] md:text-[20px] font-bricolage-light text-white/90 leading-snug'>
               {project.description}
@@ -162,7 +152,6 @@ const Project = ({ onClose }) => {
           </div>
         </div>
 
-        {/* Project Info - larger height and text */}
         <div className='pt-3 md:pt-5 px-1 md:pb-[5px]'>
           <div>
             <h3
@@ -176,9 +165,7 @@ const Project = ({ onClose }) => {
               {project.subtitle}
             </p>
           </div>
-          {/* Tech Stack + Arrow Row */}
           <div className='flex items-end justify-between gap-2 mt-1'>
-            {/* Tech Stack */}
             <div className='flex flex-wrap gap-1.5 md:gap-2 flex-1'>
               {project.tech.map((item, idx) => (
                 <span
@@ -189,24 +176,19 @@ const Project = ({ onClose }) => {
                 </span>
               ))}
             </div>
-            {/* Arrow button - white on mobile, hover animation on desktop */}
             <div
               className={`w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center border-[1.4px] ${cardBorder} overflow-hidden relative shrink-0 -mt-3 transition-colors duration-300`}
             >
-              {/* Mobile: single white arrow, Desktop: pass-through animation */}
-              {/* Arrow that exits (moves to top-right on hover) - hidden on mobile */}
               <span
                 className={`hidden md:block w-5 h-5 absolute text-[#666] group-hover:${isDark ? "text-white" : "text-black"} transition-all duration-500 ease-out group-hover:translate-x-10 group-hover:-translate-y-10`}
               >
                 <ArrowIcon className='w-full h-full' />
               </span>
-              {/* Arrow that enters on desktop (comes from bottom-left on hover) - hidden on mobile */}
               <span
                 className={`hidden md:block w-5 h-5 absolute text-[#666] group-hover:${isDark ? "text-white" : "text-black"} transition-all duration-500 ease-out -translate-x-10 translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0`}
               >
                 <ArrowIcon className='w-full h-full' />
               </span>
-              {/* Mobile only: static arrow */}
               <span
                 className={`md:hidden w-5 h-5 ${isDark ? "text-white" : "text-black"}`}
               >
@@ -223,7 +205,6 @@ const Project = ({ onClose }) => {
     <section
       className={`relative z-10 h-screen overflow-y-auto md:pt-4 md:px-4 pb-0 ${bg}`}
     >
-      {/* Noise Texture Overlay */}
       <div
         className='fixed inset-0 z-20 pointer-events-none'
         style={{
@@ -236,9 +217,8 @@ const Project = ({ onClose }) => {
       />
 
       <div
-        className={`min-h-full md:rounded-t-[44px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${cardBorder} overflow-visible ${bg}`}
+        className={`min-h-full md:rounded-t-[36px] pt-[10px] px-[10px] md:pt-[14.5px] md:px-[14.5px] pb-8 border-2 border-b-0 ${cardBorder} overflow-visible ${bg}`}
       >
-        {/* Close Button */}
         <button
           onClick={handleClose}
           className={`group absolute top-[60px] md:top-[70px] left-1/2 -translate-x-1/2 z-30 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer border-2 overflow-hidden ${isDark ? "border-[#333] hover:bg-neutral-600/15" : "border-[#d1d5db] hover:bg-black/5"} transition-colors`}
@@ -248,11 +228,8 @@ const Project = ({ onClose }) => {
           />
         </button>
 
-        {/* Main Content */}
-        <div className='max-w-[1160px] mx-auto pt-28 md:pt-32 pb-8'>
-          {/* ===== SECTION 1: DEV PROJECTS ===== */}
+        <div className='max-w-[1160px] mx-auto pt-[120px] md:pt-32 pb-8'>
           <div className='mb-12 md:mb-16'>
-            {/* Section Header */}
             <div className='mb-6 md:mb-8 text-center'>
               <span
                 className={`text-[13px] md:text-[22px] font-dmsans-light tracking-[0.2em] uppercase ${textLabel}`}
@@ -264,7 +241,6 @@ const Project = ({ onClose }) => {
               ></div>
             </div>
 
-            {/* Grid - 1 column mobile, 2 columns desktop */}
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6'>
               {devProjects.map((project, index) => (
                 <ProjectCard key={index} project={project} />
@@ -272,9 +248,7 @@ const Project = ({ onClose }) => {
             </div>
           </div>
 
-          {/* ===== SECTION 2: UI/UX PROJECTS ===== */}
           <div>
-            {/* Section Header */}
             <div className='mb-6 md:mb-8 text-center'>
               <span
                 className={`text-[13px] md:text-[22px] font-dmsans-light tracking-[0.2em] uppercase ${textLabel}`}
@@ -286,7 +260,6 @@ const Project = ({ onClose }) => {
               ></div>
             </div>
 
-            {/* Grid - 1 column mobile, 2 columns desktop */}
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6'>
               {uiuxProjects.map((project, index) => (
                 <ProjectCard key={index} project={project} />
