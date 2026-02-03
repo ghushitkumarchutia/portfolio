@@ -10,7 +10,7 @@
 
 ## 🚀 Overview
 
-Welcome to my personal portfolio. This project represents a fusion of **technical robustness** and **aesthetic precision**. Built with **React 19**, **Tailwind CSS**, and **Framer Motion**, it features a custom-designed interface that emphasizes fluid interactions, inclusive design (dark/light mode), and a polished visual identity.
+Welcome to my personal portfolio. This project represents a fusion of **technical robustness** and **aesthetic precision**. Built with **React**, **vite**, **Tailwind CSS**, and **Framer Motion**, it features a custom-designed interface that emphasizes fluid interactions, inclusive design (dark/light mode), and a polished visual identity.
 
 The design philosophy revolves around a "bento-grid" style layout, offering a clean, organized, and responsive experience that adapts seamlessly from desktop to mobile.
 
@@ -85,4 +85,4 @@ I am currently open to new opportunities and collaborations.
 
 ---
 
-© 2024 Ghushit Kumar Chutia. Built with intention.
+© 2026 Ghushit Kumar Chutia. Built with intention.
