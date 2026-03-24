@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { IoClose, IoChevronBack, IoChevronForward } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 import noiseTexture from "../assets/images/noise.webp";
 
 const About = ({ onClose }) => {
   const { isDark } = useTheme();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
 
   useEffect(() => {
@@ -28,26 +27,31 @@ const About = ({ onClose }) => {
       company: "Freelance",
       year: "2024 - Present",
     },
-    // { role: "Frontend Developer", company: "TechCorp", year: "2022 - 2023" },
     { role: "UI/UX Designer", company: "Freelance", year: "2023 - Present" },
-    // { role: "Junior Developer", company: "StartupXYZ", year: "2020 - 2021" },
   ];
 
-  const portfolioImages = [
-    "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-    "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=800&q=80",
+  const certificates = [
+    {
+      title: "Full-Stack Web Development",
+      issuer: "Coursera",
+      link: "#",
+    },
+    {
+      title: "UI/UX Design Fundamentals",
+      issuer: "Google",
+      link: "#",
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      link: "#",
+    },
+    {
+      title: "AWS Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      link: "#",
+    },
   ];
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % portfolioImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + portfolioImages.length) % portfolioImages.length,
-    );
-  };
 
   const handleClose = () => {
     setIsSpinning(true);
@@ -61,14 +65,14 @@ const About = ({ onClose }) => {
       className={`relative z-10 h-screen overflow-y-auto lg:overflow-hidden md:pt-4 md:px-4 pb-0 ${bg}`}
     >
       <div
-        className='fixed inset-0 z-20 pointer-events-none'
+        className="fixed inset-0 z-20 pointer-events-none"
         style={{
           backgroundImage: `url(${noiseTexture})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.05,
         }}
-        aria-hidden='true'
+        aria-hidden="true"
       />
 
       <div
@@ -83,26 +87,25 @@ const About = ({ onClose }) => {
           />
         </button>
 
-        <div className='max-w-[1160px] mx-auto grid grid-cols-1 lg:grid-cols-2 md:gap-3 gap-[10.5px] pt-[110px] lg:pt-36 pb-0 lg:h-full'>
+        <div className="max-w-[1160px] mx-auto grid grid-cols-1 lg:grid-cols-2 md:gap-3 gap-[10.5px] pt-[110px] lg:pt-36 pb-0 lg:h-full">
           <div
             className={`border ${cardBorder} rounded-[22px] md:rounded-t-[27.5px] lg:rounded-b-none p-6 lg:p-8 flex flex-col ${card}`}
           >
-            <h2 className='text-[26px] lg:text-[32px] font-dmsans mb-4'>
+            <h2 className="text-[26px] lg:text-[32px] font-dmsans mb-4">
               What I'm about?
             </h2>
 
             <div
               className={`w-full h-px mb-5 md:mb-6 ${isDark ? "bg-[#242424]" : "bg-[#e5e7eb]"}`}
             ></div>
-            <div className='mb-4'>
+
+            <div className="mb-4">
               <span
                 className={`text-[14px] lg:text-[16px] font-dmsans-light tracking-[0.2em] uppercase ${textLabel}`}
               >
                 MY STORY
               </span>
-              <p
-                className={`text-[16px] lg:text-[19px] font-bricolage-light tracking-wider mt-2`}
-              >
+              <p className="text-[16px] lg:text-[19px] font-bricolage-light tracking-wider mt-2">
                 I'm Ghushit Kumar Chutia, from Assam, India. My journey into
                 technology began with a curiosity for turning ideas into
                 meaningful digital experiences, which grew into a passion for
@@ -111,15 +114,13 @@ const About = ({ onClose }) => {
               </p>
             </div>
 
-            <div className='mb-5 md:mb-6'>
+            <div className="mb-5 md:mb-6">
               <span
                 className={`text-[14px] lg:text-[16px] font-dmsans-light tracking-[0.2em] uppercase ${textLabel}`}
               >
                 WHAT I DO NOW
               </span>
-              <p
-                className={`text-[16px] lg:text-[19px] font-bricolage-light tracking-wider mt-2`}
-              >
+              <p className="text-[16px] lg:text-[19px] font-bricolage-light tracking-wider mt-2">
                 I build scalable full-stack web applications that blend
                 intelligent AI-driven functionality with clean architecture and
                 thoughtful UI and UX design. My focus is on transforming complex
@@ -130,57 +131,14 @@ const About = ({ onClose }) => {
             </div>
           </div>
 
-          <div className='flex flex-col lg:grid lg:grid-rows-[1.2fr_1fr] md:gap-3 gap-[10.5px] lg:h-full lg:overflow-hidden'>
-            <div className='grid grid-cols-[1.35fr_1fr] lg:grid-cols-2 gap-[10.5px] md:gap-3 min-h-[250px] lg:min-h-0'>
-              <div
-                className={`rounded-[20px] md:rounded-[27.5px] overflow-hidden relative ${card}`}
-              >
-                <img
-                  src={portfolioImages[currentImageIndex]}
-                  alt='Portfolio'
-                  className='w-full h-full object-cover'
-                />
-
-                <button
-                  onClick={prevImage}
-                  className='absolute left-3 lg:left-5 top-1/2 -translate-y-1/2 w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-black/25 backdrop-blur-sm flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-150'
-                >
-                  <IoChevronBack className='w-4 h-4 lg:w-5 lg:h-5 text-white/90' />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className='absolute right-3 lg:right-5 top-1/2 -translate-y-1/2 w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-black/25 backdrop-blur-sm flex items-center justify-center cursor-pointer active:scale-95 transition-transform duration-150'
-                >
-                  <IoChevronForward className='w-4 h-4 lg:w-5 lg:h-5 text-white/90' />
-                </button>
-
-                <div
-                  className='absolute bottom-4 lg:bottom-5 left-1/2 -translate-x-1/2 px-[11px] py-[7px] rounded-full flex gap-2 lg:gap-2.5'
-                  style={{
-                    background: "rgba(0, 0, 0, 0.15)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                  }}
-                >
-                  {portfolioImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full transition-all duration-300 ${
-                        currentImageIndex === index
-                          ? "bg-white scale-110"
-                          : "bg-white/40 hover:bg-white/60"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className='grid grid-rows-[0.8fr_1fr] md:grid-rows-2 gap-2 md:gap-3 h-full'>
+          <div className="flex flex-col lg:grid lg:grid-rows-[1.2fr_1fr] md:gap-3 gap-[10.5px] lg:h-full lg:overflow-hidden">
+            <div className="grid grid-cols-[1.35fr_1fr] lg:grid-cols-2 gap-[10.5px] md:gap-3 min-h-[250px] lg:min-h-0">
+              {/* CV + Currently */}
+              <div className="grid grid-rows-[0.8fr_1fr] md:grid-rows-2 gap-2 md:gap-3 h-full">
                 <a
-                  href='https://drive.google.com/file/d/1zNOy4y767lp-dPli1w4V9gurMLGNsgF8/view?usp=share_link'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="https://drive.google.com/file/d/1zNOy4y767lp-dPli1w4V9gurMLGNsgF8/view?usp=share_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`border ${cardBorder} rounded-[20px] md:rounded-[27.5px] p-3 lg:p-6 flex flex-col items-center justify-center gap-2 lg:gap-3 cursor-pointer ${card} hover:bg-white/5`}
                 >
                   <span
@@ -192,17 +150,17 @@ const About = ({ onClose }) => {
                     className={`w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center border ${isDark ? "border-[#333] group-hover:border-[#555]" : "border-[#d1d5db]"} transition-all`}
                   >
                     <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      viewBox='0 0 24 24'
-                      fill='none'
-                      stroke='currentColor'
-                      strokeWidth='2'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      className='w-4 h-4 lg:w-5 lg:h-5'
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4 lg:w-5 lg:h-5"
                     >
-                      <path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z' />
-                      <circle cx='12' cy='12' r='3' />
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
                     </svg>
                   </div>
                 </a>
@@ -215,8 +173,8 @@ const About = ({ onClose }) => {
                   >
                     CURRENTLY
                   </span>
-                  <div className='flex-1 flex flex-col justify-center'>
-                    <h3 className='text-[14px] lg:text-[18px] font-bricolage-light mt-2'>
+                  <div className="flex-1 flex flex-col justify-center">
+                    <h3 className="text-[14px] lg:text-[18px] font-bricolage-light mt-2">
                       3rd year, Btech CSE
                     </h3>
                     <p
@@ -232,6 +190,55 @@ const About = ({ onClose }) => {
                   </div>
                 </div>
               </div>
+
+              {/* Certificates Card */}
+              <div
+                className={`rounded-[20px] md:rounded-[27.5px] border ${cardBorder} ${card} p-4 lg:p-6 flex flex-col h-full`}
+              >
+                <span
+                  className={`text-[11px] lg:text-[14px] font-dmsans-light tracking-[0.2em] uppercase ${textLabel} mb-3 lg:mb-5`}
+                >
+                  CERTIFICATES
+                </span>
+
+                <div className="flex-1 flex flex-col justify-between">
+                  {certificates.map((cert, index) => (
+                    <a
+                      key={index}
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group flex items-center justify-between py-2 lg:py-2.5 border-b last:border-b-0 ${isDark ? "border-[#222]" : "border-[#e5e7eb]"} transition-colors duration-200`}
+                    >
+                      <div className="flex-1 min-w-0 pr-2">
+                        <p
+                          className={`text-[11.5px] lg:text-[14.5px] font-bricolage-light leading-snug truncate transition-colors duration-200 ${isDark ? "group-hover:text-white" : "group-hover:text-black"}`}
+                        >
+                          {cert.title}
+                        </p>
+                        <p
+                          className={`text-[10px] lg:text-[12px] font-dmsans-light mt-0.5 ${textMuted}`}
+                        >
+                          {cert.issuer}
+                        </p>
+                      </div>
+                      <svg
+                        className={`w-3 h-3 lg:w-3.5 lg:h-3.5 shrink-0 ${textMuted} transition-colors duration-200 ${isDark ? "group-hover:text-white" : "group-hover:text-black"}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div
@@ -243,13 +250,13 @@ const About = ({ onClose }) => {
                 EXPERIENCE
               </span>
 
-              <div className='mt-[14px] md:mt-5 space-y-3 lg:space-y-4'>
+              <div className="mt-[14px] md:mt-5 space-y-3 lg:space-y-4">
                 {experience.map((exp, index) => (
                   <div
                     key={index}
-                    className='flex items-center justify-between'
+                    className="flex items-center justify-between"
                   >
-                    <span className='text-[14px] lg:text-[18px] font-bricolage-light whitespace-nowrap'>
+                    <span className="text-[14px] lg:text-[18px] font-bricolage-light whitespace-nowrap">
                       {exp.role} at {exp.company}
                     </span>
                     <div

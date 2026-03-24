@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import {
-  FaXTwitter,
-  FaGithub,
-  FaLinkedinIn,
-  FaInstagram,
-} from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { IoCopyOutline } from "react-icons/io5";
@@ -14,6 +9,7 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiFigma,
+  SiLeetcode,
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
@@ -24,7 +20,7 @@ import {
   SiGit,
 } from "react-icons/si";
 import noiseTexture from "../assets/images/noise.webp";
-import profile from "../assets/images/profile.webp";
+import profile from "../assets/images/mypic.jpeg";
 import projects from "../assets/images/projects.webp";
 
 const ArrowIcon = ({ className = "" }) => (
@@ -96,7 +92,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
         className={`flex flex-col rounded-[36px] border-2 ${cardBorder} h-full w-full relative p-3`}
       >
         <div className='h-full flex gap-3'>
-          <div className='w-[350px] grid grid-rows-[350px_1fr_160px] gap-3 h-full shrink-0'>
+          <div className='w-87.5 grid grid-rows-[350px_1fr_160px] gap-3 h-full shrink-0'>
             <div className={`rounded-[27.5px] overflow-hidden ${card}`}>
               <img
                 src={profile}
@@ -137,11 +133,11 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
               className={`rounded-[27.5px] flex items-center justify-center border ${cardBorder} ${card}`}
             >
               <div
-                className={`w-[104px] h-[52px] rounded-full px-1 relative flex items-center transition-colors duration-500 border-[1.7px] ${isDark ? "bg-[#252525] border-[#444]" : "bg-[#d0d0d0] border-[#b0b0b0]"}`}
+                className={`w-26 h-13 rounded-full px-1 relative flex items-center transition-colors duration-500 border-[1.7px] ${isDark ? "bg-[#252525] border-[#444]" : "bg-[#d0d0d0] border-[#b0b0b0]"}`}
                 onClick={toggleTheme}
               >
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center bg-[#0a0a0a] transition-all duration-500 ease-in-out ${isDark ? "ml-0" : "ml-[52px]"}`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center bg-[#0a0a0a] transition-all duration-500 ease-in-out ${isDark ? "ml-0" : "ml-13"}`}
                 >
                   <IoMoon
                     className={`w-5 h-5 text-[#d4c896] absolute transition-all duration-300 ease-out ${isDark ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
@@ -156,8 +152,9 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
           <div className='flex-1 grid grid-rows-[1fr_240px] gap-3 h-full'>
             <div className='grid grid-cols-[1fr_95px] gap-3 h-full'>
-              <div
-                className={`col-span-1 h-full rounded-[27.5px] pl-12 pr-10 pb-8 pt-14 flex flex-col justify-between border ${cardBorder} relative group ${card}`}
+              <button
+                onClick={onShowAbout}
+                className={`col-span-1 h-full rounded-[27.5px] pl-12 pr-10 pb-8 pt-14 flex flex-col justify-between text-left border ${cardBorder} relative group ${card}`}
               >
                 <div className='flex flex-col justify-center'>
                   <h1 className='text-[54px] font-dmsans mb-2 leading-tight'>
@@ -165,7 +162,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   </h1>
 
                   <p
-                    className={`text-[32px] font-bricolage-light ml-[-2px] ${textMuted}`}
+                    className={`text-[32px] font-bricolage-light -ml-0.5 ${textMuted}`}
                   >
                     Full-Stack Developer & UI/UX Designer
                   </p>
@@ -199,12 +196,12 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </button>
 
-              <div className='flex flex-col gap-[10px] h-full'>
+              <div className='flex flex-col gap-2.5 h-full'>
                 <a
                   href='https://www.linkedin.com/in/ghushitkumarchutia/'
-                  className={`flex-1 w-full rounded-b-[16px] rounded-t-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
+                  className={`flex-1 w-full rounded-b-2xl rounded-t-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <FaLinkedinIn
                     className={`w-9 h-9 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
@@ -212,7 +209,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                 </a>
                 <a
                   href='https://github.com/ghushitkumarchutia'
-                  className={`flex-1 w-full rounded-[16px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
+                  className={`flex-1 w-full rounded-2xl flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <FaGithub
                     className={`w-9 h-9 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
@@ -220,7 +217,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                 </a>
                 <a
                   href='mailto:ghushitchutia@gmail.com'
-                  className={`flex-1 w-full rounded-[16px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
+                  className={`flex-1 w-full rounded-2xl flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <HiOutlineMail
                     className={`w-10 h-10 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
@@ -230,15 +227,15 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   href='https://www.instagram.com/ghushittt/'
                   className={`flex-1 w-full rounded-[20px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
-                  <FaInstagram
+                  <SiLeetcode
                     className={`w-9 h-9 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
                 <a
                   href='#'
-                  className={`flex-1 w-full rounded-t-[16px] rounded-b-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
+                  className={`flex-1 w-full rounded-t-2xl rounded-b-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
-                  <FaXTwitter
+                  <SiFigma
                     className={`w-8 h-8 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
@@ -264,7 +261,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                       {duplicatedSkillsRow1.map(({ Icon, color }, index) => (
                         <div
                           key={index}
-                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                          className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-300 ${
                             isDark
                               ? "bg-[#1c1c1c]"
                               : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
@@ -278,7 +275,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                       {duplicatedSkillsRow1.map(({ Icon, color }, index) => (
                         <div
                           key={index}
-                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                          className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-300 ${
                             isDark
                               ? "bg-[#1c1c1c]"
                               : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
@@ -298,7 +295,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                       {duplicatedSkillsRow2.map(({ Icon, color }, index) => (
                         <div
                           key={index}
-                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                          className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-300 ${
                             isDark
                               ? "bg-[#1c1c1c]"
                               : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
@@ -316,7 +313,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                       {duplicatedSkillsRow2.map(({ Icon, color }, index) => (
                         <div
                           key={index}
-                          className={`w-16 h-16 rounded-[16px] flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                          className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-300 ${
                             isDark
                               ? "bg-[#1c1c1c]"
                               : "bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
@@ -349,7 +346,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     Open to new opportunities & collaborations
                   </h3>
                   <p
-                    className={`text-[13px] font-dmsans-light mt-[11px] mr-3 ${textMuted}`}
+                    className={`text-[13px] font-dmsans-light mt-2.75 mr-3 ${textMuted}`}
                   >
                     Let's build something great!
                   </p>
@@ -372,7 +369,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
 
                 <button
                   onClick={handleCopyEmail}
-                  className={`w-full flex items-center justify-between px-6 py-[14px] rounded-[16px] border ${cardBorder} transition-all duration-300 font-dmsans-light ${
+                  className={`w-full flex items-center justify-between px-6 py-3.5 rounded-2xl border ${cardBorder} transition-all duration-300 font-dmsans-light ${
                     emailCopied
                       ? isDark
                         ? "border-green-500 bg-green-500/10"
@@ -390,7 +387,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   {emailCopied ? (
                     <span className='text-green-500 text-lg'>✓</span>
                   ) : (
-                    <IoCopyOutline className='w-[22px] h-[22px] opacity-100' />
+                    <IoCopyOutline className='w-5.5 h-5.5 opacity-100' />
                   )}
                 </button>
               </div>

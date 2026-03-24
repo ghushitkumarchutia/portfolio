@@ -36,13 +36,12 @@ const Project = ({ onClose }) => {
 
   const devProjects = [
     {
-      title: "DimLight – Sleep Tracker",
+      title: "EndPoint – API Testing Tool",
       subtitle: "Full-Stack App",
       description:
-        "A comprehensive sleep tracking app with analytics dashboard and personalized insights.",
+        "A comprehensive API testing tool with real-time monitoring and debugging capabilities.",
       tech: ["React", "Node.js", "MongoDB"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      image: "",
       link: "#",
     },
     {
@@ -55,25 +54,25 @@ const Project = ({ onClose }) => {
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
       link: "#",
     },
-    {
-      title: "Portfolio Website",
-      subtitle: "React + Tailwind",
-      description: "Personal portfolio showcasing projects and skills.",
-      tech: ["React", "Tailwind", "Vite"],
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      link: "#",
-    },
-    {
-      title: "Inventory System",
-      subtitle: "MERN Stack",
-      description:
-        "Full-featured inventory management system for small businesses.",
-      tech: ["MongoDB", "Express", "React", "Node.js"],
-      image:
-        "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
-      link: "#",
-    },
+    // {
+    //   title: "Portfolio Website",
+    //   subtitle: "React + Tailwind",
+    //   description: "Personal portfolio showcasing projects and skills.",
+    //   tech: ["React", "Tailwind", "Vite"],
+    //   image:
+    //     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    //   link: "#",
+    // },
+    // {
+    //   title: "Inventory System",
+    //   subtitle: "MERN Stack",
+    //   description:
+    //     "Full-featured inventory management system for small businesses.",
+    //   tech: ["MongoDB", "Express", "React", "Node.js"],
+    //   image:
+    //     "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
+    //   link: "#",
+    // },
   ];
 
   const uiuxProjects = [
