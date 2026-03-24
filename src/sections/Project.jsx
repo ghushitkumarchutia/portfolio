@@ -37,81 +37,85 @@ const Project = ({ onClose }) => {
   const devProjects = [
     {
       title: "EndPoint – API Testing Tool",
-      subtitle: "Full-Stack App",
+      subtitle: "Full-Stack Web App",
       description:
         "A comprehensive API testing tool with real-time monitoring and debugging capabilities.",
-      tech: ["React", "Node.js", "MongoDB"],
-      image: "",
+      tech: ["React", "Node", "Express", "MongoDB"],
+      image: "src/assets/images/endpoint.png",
       link: "#",
     },
     {
-      title: "PriceIQ – Price Optimizer",
-      subtitle: "AI/ML Platform",
+      title: "StreamPulse",
+      subtitle: "Real-Time Messaging Server",
       description:
-        "AI-powered dynamic pricing platform for e-commerce businesses.",
-      tech: ["Python", "TensorFlow", "FastAPI"],
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      link: "https://github.com/ghushitkumarchutia/portfolio/blob/main/src/assets/images/endpoint.png",
+        "A persistent WebSocket server with multi-tier channel subscriptions, Redis-backed messaging, and Docker-orchestrated infrastructure.",
+      tech: ["Node", "Fastify", "WebSocket", "PostgreSQL", "Docker"],
+      image: "src/assets/images/streampulse.png",
+      link: "https://github.com/ghushitkumarchutia/streampulse",
     },
-    // {
-    //   title: "Portfolio Website",
-    //   subtitle: "React + Tailwind",
-    //   description: "Personal portfolio showcasing projects and skills.",
-    //   tech: ["React", "Tailwind", "Vite"],
-    //   image:
-    //     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-    //   link: "#",
-    // },
-    // {
-    //   title: "Inventory System",
-    //   subtitle: "MERN Stack",
-    //   description:
-    //     "Full-featured inventory management system for small businesses.",
-    //   tech: ["MongoDB", "Express", "React", "Node.js"],
-    //   image:
-    //     "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
-    //   link: "#",
-    // },
+    {
+      title: "GeoMoment",
+      subtitle: "Crowdsourced Geospatial Platform",
+      description:
+        "A location-based platform for tagging real-world moments, powered by geospatial queries and WebGL heatmap visualisation.",
+      tech: [
+        "React",
+        "Node",
+        "Express",
+        "MongoDB",
+        "Google Maps API",
+        "deck.gl",
+      ],
+      image: "src/assets/images/geomoment.png",
+      link: "https://geomoment.vercel.app/",
+    },
+    {
+      title: "CMS",
+      subtitle: "Content Management System",
+      description:
+        "A secure content management system with OTP verification, RESTful CRUD, and IP-based rate limiting.",
+      tech: ["Node", "Express", "MongoDB", "Nodemailer"],
+      image: "src/assets/images/cms.png",
+      link: "https://github.com/ghushitkumarchutia/cms",
+    },
   ];
 
   const uiuxProjects = [
-    {
-      title: "Mobile Banking App",
-      subtitle: "UI/UX Design",
-      description: "Modern banking app design with intuitive user experience.",
-      tech: ["Figma", "Prototyping"],
-      image:
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
-      link: "#",
-    },
-    {
-      title: "E-commerce Redesign",
-      subtitle: "Web Design",
-      description: "Complete UI overhaul for an e-commerce platform.",
-      tech: ["Figma", "UI Design"],
-      image:
-        "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-      link: "#",
-    },
-    {
-      title: "Dashboard Concept",
-      subtitle: "SaaS Design",
-      description: "Analytics dashboard design for SaaS applications.",
-      tech: ["Figma", "Design System"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      link: "#",
-    },
-    {
-      title: "Travel App Concept",
-      subtitle: "Mobile Design",
-      description: "Travel booking app with immersive visual design.",
-      tech: ["Figma", "Mobile UI"],
-      image:
-        "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
-      link: "#",
-    },
+    // {
+    //   title: "Mobile Banking App",
+    //   subtitle: "UI/UX Design",
+    //   description: "Modern banking app design with intuitive user experience.",
+    //   tech: ["Figma", "Prototyping"],
+    //   image: "src/assets/images/mobile-banking.png",
+    //   link: "#",
+    // },
+    // {
+    //   title: "E-commerce Redesign",
+    //   subtitle: "Web Design",
+    //   description: "Complete UI overhaul for an e-commerce platform.",
+    //   tech: ["Figma", "UI Design"],
+    //   image:
+    //     "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+    //   link: "#",
+    // },
+    // {
+    //   title: "Dashboard Concept",
+    //   subtitle: "SaaS Design",
+    //   description: "Analytics dashboard design for SaaS applications.",
+    //   tech: ["Figma", "Design System"],
+    //   image:
+    //     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    //   link: "#",
+    // },
+    // {
+    //   title: "Travel App Concept",
+    //   subtitle: "Mobile Design",
+    //   description: "Travel booking app with immersive visual design.",
+    //   tech: ["Figma", "Mobile UI"],
+    //   image:
+    //     "https://i.pinimg.com/1200x/81/e4/59/81e459e6e4edd29d22165441d1071d0e.jpg",
+    //   link: "#",
+    // },
   ];
 
   const handleClose = () => {
