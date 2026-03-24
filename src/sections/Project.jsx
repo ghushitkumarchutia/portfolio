@@ -257,14 +257,14 @@ const Project = ({ onClose }) => {
 
           <div>
             <div className='mb-6 md:mb-8 text-center'>
-              <span
+              {/* <span
                 className={`text-[13px] md:text-[22px] font-dmsans-light tracking-[0.2em] uppercase ${textLabel}`}
               >
                 UI/UX DESIGN PROJECTS
               </span>
               <div
                 className={`w-full h-[1.5px] ${separatorColor} mt-[10px]`}
-              ></div>
+              ></div> */}
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6'>
