@@ -41,8 +41,8 @@ const Project = ({ onClose }) => {
       description:
         "A comprehensive API testing tool with real-time monitoring and debugging capabilities.",
       tech: ["React", "Node", "Express", "MongoDB"],
-      image: "src/assets/images/endpoint.png",
-      link: "#",
+      image: "../assets/images/endpoint.png",
+      link: "https://github.com/ghushitkumarchutia/endpoint",
     },
     {
       title: "StreamPulse",
@@ -50,7 +50,7 @@ const Project = ({ onClose }) => {
       description:
         "A persistent WebSocket server with multi-tier channel subscriptions, Redis-backed messaging, and Docker-orchestrated infrastructure.",
       tech: ["Node", "Fastify", "WebSocket", "PostgreSQL", "Docker"],
-      image: "src/assets/images/streampulse.png",
+      image: "../assets/images/streampulse.png",
       link: "https://github.com/ghushitkumarchutia/streampulse",
     },
     {
@@ -66,7 +66,7 @@ const Project = ({ onClose }) => {
         "Google Maps API",
         "deck.gl",
       ],
-      image: "src/assets/images/geomoment.png",
+      image: "../assets/images/geomoment.png",
       link: "https://geomoment.vercel.app/",
     },
     {
@@ -75,7 +75,7 @@ const Project = ({ onClose }) => {
       description:
         "A secure content management system with OTP verification, RESTful CRUD, and IP-based rate limiting.",
       tech: ["Node", "Express", "MongoDB", "Nodemailer"],
-      image: "src/assets/images/cms.png",
+      image: "../assets/images/cms.png",
       link: "https://github.com/ghushitkumarchutia/cms",
     },
   ];
