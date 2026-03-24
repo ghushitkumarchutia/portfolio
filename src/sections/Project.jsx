@@ -52,7 +52,7 @@ const Project = ({ onClose }) => {
       tech: ["Python", "TensorFlow", "FastAPI"],
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      link: "#",
+      link: "https://github.com/ghushitkumarchutia/portfolio/blob/main/src/assets/images/endpoint.png",
     },
     // {
     //   title: "Portfolio Website",
