@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { IoClose } from "react-icons/io5";
 import noiseTexture from "../assets/images/noise.webp";
+import endpointImage from "../assets/images/endpoint.png";
+import streampulseImage from "../assets/images/streampulse.png";
+import geomomentImage from "../assets/images/geomoment.png";
+import cmsImage from "../assets/images/cms.png";
 
 const ArrowIcon = ({ className = "" }) => (
   <svg
@@ -41,7 +45,7 @@ const Project = ({ onClose }) => {
       description:
         "A comprehensive API testing tool with real-time monitoring and debugging capabilities.",
       tech: ["React", "Node", "Express", "MongoDB"],
-      image: "../assets/images/endpoint.png",
+      image: endpointImage,
       link: "https://github.com/ghushitkumarchutia/endpoint",
     },
     {
@@ -50,7 +54,7 @@ const Project = ({ onClose }) => {
       description:
         "A persistent WebSocket server with multi-tier channel subscriptions, Redis-backed messaging, and Docker-orchestrated infrastructure.",
       tech: ["Node", "Fastify", "WebSocket", "PostgreSQL", "Docker"],
-      image: "../assets/images/streampulse.png",
+      image: streampulseImage,
       link: "https://github.com/ghushitkumarchutia/streampulse",
     },
     {
@@ -66,7 +70,7 @@ const Project = ({ onClose }) => {
         "Google Maps API",
         "deck.gl",
       ],
-      image: "../assets/images/geomoment.png",
+      image: geomomentImage,
       link: "https://geomoment.vercel.app/",
     },
     {
@@ -75,7 +79,7 @@ const Project = ({ onClose }) => {
       description:
         "A secure content management system with OTP verification, RESTful CRUD, and IP-based rate limiting.",
       tech: ["Node", "Express", "MongoDB", "Nodemailer"],
-      image: "../assets/images/cms.png",
+      image: cmsImage,
       link: "https://github.com/ghushitkumarchutia/cms",
     },
   ];
