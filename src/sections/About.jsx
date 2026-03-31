@@ -135,7 +135,7 @@ const About = ({ onClose }) => {
               {/* CV + Currently */}
               <div className='grid grid-rows-[0.8fr_1fr] md:grid-rows-2 gap-2 md:gap-3 h-full'>
                 <a
-                  href='https://drive.google.com/file/d/1ztdUuweSAlcW7hvO2oMk5sVJXiRV8p9t/view?usp=sharing'
+                  href='https://drive.google.com/file/d/170TNOUR6egJDCT_ZqSsxW-MNXKRXXsuu/view?usp=sharing'
                   target='_blank'
                   rel='noopener noreferrer'
                   className={`border ${cardBorder} rounded-[20px] md:rounded-[27.5px] p-3 lg:p-6 flex flex-col items-center justify-center gap-2 lg:gap-3 cursor-pointer ${card} hover:bg-white/5`}
