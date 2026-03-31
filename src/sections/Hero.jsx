@@ -224,7 +224,7 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   />
                 </a>
                 <a
-                  href='https://www.instagram.com/ghushittt/'
+                  href='https://leetcode.com/u/GhushitDevX/'
                   className={`flex-1 w-full rounded-[20px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
                   <SiLeetcode
