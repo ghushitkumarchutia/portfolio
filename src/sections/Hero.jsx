@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaInstagram,
+  FaXTwitter,
+} from "react-icons/fa6";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { IoCopyOutline } from "react-icons/io5";
@@ -9,7 +14,6 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiFigma,
-  SiLeetcode,
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
@@ -20,7 +24,7 @@ import {
   SiGit,
 } from "react-icons/si";
 import noiseTexture from "../assets/images/noise.webp";
-import profile from "../assets/images/mypic.jpeg";
+import profile from "../assets/images/profile.webp";
 import projects from "../assets/images/projects.webp";
 
 const ArrowIcon = ({ className = "" }) => (
@@ -157,15 +161,9 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                 className={`col-span-1 h-full rounded-[27.5px] pl-12 pr-10 pb-8 pt-14 flex flex-col justify-between text-left border ${cardBorder} relative group ${card}`}
               >
                 <div className='flex flex-col justify-center'>
-                  <h1 className='text-[54px] font-dmsans mb-2 leading-tight'>
+                  <h1 className='text-[54px] font-dmsans mt-2 leading-tight'>
                     Hi, I'm Ghushit ⎯
                   </h1>
-
-                  <p
-                    className={`text-[32px] font-bricolage-light -ml-0.5 ${textMuted}`}
-                  >
-                    Full-Stack Developer & UI/UX Designer
-                  </p>
                 </div>
                 <span
                   className={`w-full h-[1.5px] ${isDark ? "bg-[#242424]" : "bg-[#d1d5db]"}`}
@@ -178,8 +176,8 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                     ABOUT
                   </span>
                   <p className='text-[34px] font-bricolage-light leading-snug max-w-[90%] mb-16'>
-                    Passionate about crafting clean code and beautiful
-                    interfaces.
+                    A backend developer, passionate about crafting clean code
+                    and scalable systems.
                   </p>
 
                   <div className='absolute flex items-center bottom-0 right-0'>
@@ -227,15 +225,15 @@ const Hero = ({ onShowAbout, onShowProject, onShowSkill }) => {
                   href='https://leetcode.com/u/GhushitDevX/'
                   className={`flex-1 w-full rounded-[20px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
-                  <SiLeetcode
+                  <FaInstagram
                     className={`w-9 h-9 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>
                 <a
                   href='#'
-                  className={`flex-1 w-full rounded-t-2xl rounded-b-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
+                  className={`flex-1 w-full rounded-t-[16px] rounded-b-[27.5px] flex items-center justify-center border ${cardBorder} transition-all ${card}`}
                 >
-                  <SiFigma
+                  <FaXTwitter
                     className={`w-8 h-8 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
                   />
                 </a>

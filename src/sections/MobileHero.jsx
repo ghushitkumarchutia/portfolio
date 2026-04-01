@@ -87,13 +87,9 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
           className={`rounded-[30px] px-9 py-10 flex flex-col justify-center border ${cardBorder} ${card}`}
         >
           <h1 className='text-[30px] font-dmsans mb-1'>Hi, I'm Ghushit ⎯</h1>
-          <p
-            className={`text-[23px] font-bricolage-light ml-[-2px] ${textMuted}`}
-          >
-            Full-Stack Developer & UI/UX Designer
-          </p>
         </div>
         <div
+          onClick={onShowAbout}
           className={`border ${cardBorder} rounded-[30px] pt-[30px] pr-4 pb-4 pl-8 flex flex-col justify-between group transition-colors duration-150 ${isDark ? "hover:bg-white/5" : ""} ${card}`}
         >
           <span
@@ -102,7 +98,8 @@ const MobileHero = ({ onShowAbout, onShowProject, onShowSkill }) => {
             ABOUT
           </span>
           <p className='text-[23px] font-bricolage-light leading-snug my-4'>
-            Passionate about crafting clean code and beautiful interfaces.
+            A backend developer, passionate about crafting clean code and
+            scalable systems.
           </p>
           <div className='flex justify-end'>
             <button

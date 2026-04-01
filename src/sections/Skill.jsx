@@ -35,33 +35,20 @@ const Skill = ({ onClose }) => {
       skills: ["C++", "Python", "JavaScript", "TypeScript"],
     },
     {
-      label: "FRONTEND",
-      skills: ["React", "Next.js", "Tailwind", "Framer Motion", "HTML/CSS"],
-    },
-    {
       label: "BACKEND",
-      skills: ["Node.js", "Express", "GraphQL", "REST APIs"],
+      skills: ["Node.js", "Express.js", "Fastify", "REST APIs"],
     },
     {
       label: "DATABASES",
-      skills: ["MongoDB", "PostgreSQL", "Redis", "Prisma"],
+      skills: ["MongoDB", "MySQL", "PostgreSQL", "Redis"],
     },
     {
-      label: "DEVOPS & TOOLS",
-      skills: ["Docker", "AWS", "CI/CD", "Git"],
+      label: "CLOUD & DEVOPS",
+      skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Linux"],
     },
     {
-      label: "DESIGN",
-      skills: ["Figma", "UI/UX", "Prototyping", "Design Systems"],
-    },
-    {
-      label: "CREATIVE",
-      skills: [
-        "Motion Graphics",
-        "Visual Storytelling",
-        "Brand Design",
-        "Typography",
-      ],
+      label: "TOOLS/PLATFORMS",
+      skills: ["Git", "GitHub", "Postman", "VS Code"],
     },
   ];
 

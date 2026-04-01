@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { IoClose } from "react-icons/io5";
 import noiseTexture from "../assets/images/noise.webp";
-import endpointImage from "../assets/images/endpoint.png";
-import streampulseImage from "../assets/images/streampulse.png";
-import geomomentImage from "../assets/images/geomoment.png";
-import cmsImage from "../assets/images/cms.png";
+import endpointImage from "../assets/images/endpoint.webp";
+import streampulseImage from "../assets/images/streampulse.webp";
+import geomomentImage from "../assets/images/geomoment.webp";
+import cmsImage from "../assets/images/cms.webp";
 
 const ArrowIcon = ({ className = "" }) => (
   <svg
